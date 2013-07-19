@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+   <!-- Allows us to use the resources tag below and not override the request being passed to the controller -->
+   <mvc:annotation-driven />
+
+   <!-- Tell Spring the location of all of the static resources -->
+   <mvc:resources mapping="/resources/**" location="/resources/" />
+
+   <!-- Scan for @Component in this package -->
+   <context:component-scan base-package="com.jjw.messagingsystem.controller" />
+
+   <!-- Allow for annotations. -->
+   <context:annotation-config />
+
+   <bean id="message" class="java.lang.String">
+      <constructor-arg value="Hello World" />
+   </bean>
+
+</beans>
