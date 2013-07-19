@@ -1,6 +1,6 @@
-package com.jjw.messagingsystem.domain;
+package com.jjw.messagingsystem.dto;
 
-public class User
+public class UserDTO
 {
     private String myFirstName;
     private String myLastName;

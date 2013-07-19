@@ -1,8 +1,8 @@
 package com.jjw.messagingsystem.service;
 
-import com.jjw.messagingsystem.domain.User;
+import com.jjw.messagingsystem.dto.UserDTO;
 
 public interface UserService
 {
-    public void addNewUser(User user);
+    public void addNewUser(UserDTO user);
 }
