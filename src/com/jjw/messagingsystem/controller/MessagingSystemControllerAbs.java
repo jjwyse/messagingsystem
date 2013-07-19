@@ -1,8 +1,13 @@
 package com.jjw.messagingsystem.controller;
 
-import com.jjw.messagingsystem.MessagingSystemConstants;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class MessagingSystemControllerAbs implements MessagingSystemConstants
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
+import com.jjw.messagingsystem.service.UserService;
+
+public abstract class MessagingSystemControllerAbs implements MessagingSystemConstantsIF
 {
+    @Autowired
+    protected UserService myUserService;
 
 }

@@ -20,8 +20,9 @@
    <!-- Allow for annotations. -->
    <context:annotation-config />
 
-   <bean id="message" class="java.lang.String">
-      <constructor-arg value="Hello World" />
-   </bean>
+   <!-- Service beans -->
+   <bean id="userService" class="com.jjw.messagingsystem.service.impl.UserServiceImpl" />
 
+   <!-- DAO beans -->
+   <bean id="userDAO" class="com.jjw.messagingsystem.dao.impl.UserDAOImpl" />
 </beans>
