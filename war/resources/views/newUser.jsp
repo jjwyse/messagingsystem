@@ -23,34 +23,36 @@
       </h3>
    </div>
    <div id="midder">
-      <div class="login">
+      <div class="newUser">
          <form method="POST">
-            <h1>Login:</h1>
+            <h1>Sign Up:</h1>
             <table>
                <tr>
-                  <td class="label">Username:</td>
+                  <td class="label">First Name:</td>
                </tr>
                <tr>
-                  <td><input type="text" name="username" value="${username}" placeholder="" required></td>
+                  <td><input id="firstName" name="firstName" type="text" placeholder="" required></td>
                </tr>
                <tr>
-                  <td class="label">Password:</td>
+                  <td class="label">Last Name:</td>
                </tr>
                <tr>
-                  <td><input type="password" name="password" value="" placeholder="" required></td>
+                  <td><input id="lastName" name="lastName" type="text" placeholder="" required></td>
                </tr>
                <tr>
-                  <td><input type="submit" value="Sign In"></td>
+                  <td class="label">Email:</td>
+               </tr>
+               <tr>
+                  <td><input id="email" name="email" type="email" placeholder="example@domain.com" required></td>
+               </tr>
+               <tr>
+                  <td><input type="submit" value="Sign Up"></td>
                </tr>
                <tr>
                   <td class="error">${error}</td>
                </tr>
             </table>
          </form>
-
-         <!-- link that opens popup -->
-         <a class="newUserLink" href="/newUser">New User?</a>
-
       </div>
    </div>
    <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>

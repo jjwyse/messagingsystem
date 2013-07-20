@@ -26,12 +26,12 @@ public class LoginController extends MessagingSystemControllerAbs
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String postLogin(@RequestParam("username") String username, ModelMap map)
+    public String postLogin(@RequestParam("username") String username, ModelMap model)
     {
         myLogger.info("Handling post in login controller");
         if (StringUtils.isEmpty(username))
         {
-            map.addAttribute(MODEL_ERROR, "Please enter a username");
+            model.addAttribute(MODEL_ERROR, "Please enter a username");
             return VIEW_LOGIN;
         }
 
@@ -39,12 +39,12 @@ public class LoginController extends MessagingSystemControllerAbs
         UserDTO user = myUserService.getUserInfo(username);
         if (user == null)
         {
-            map.addAttribute(MODEL_ERROR, "No user with username: " + username + " in the system");
+            model.addAttribute(MODEL_ERROR, "No user with username: " + username + " in the system");
             return VIEW_LOGIN;
         }
 
-        myLogger.info("Logging in as user: " + user);
+        myLogger.info("Successfully logged in as user: " + user);
 
-        return VIEW_LOGIN;
+        return REDIRECT + VIEW_INBOX;
     }
 }

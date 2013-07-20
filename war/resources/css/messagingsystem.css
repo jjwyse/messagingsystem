@@ -16,13 +16,18 @@ h1,h2,h3,h4,h5 {
    font-weight: normal;
 }
 
+input:focus
+{
+   border-color: #EE7622;
+}
+
 /* -------------------------------- */
 /* Login page */
 /* -------------------------------- */
 .login {
    left: 50%;
    margin-left: -150px;
-   margin-top: -200px;
+   margin-top: -250px;
    position: fixed;
 }
 
@@ -38,14 +43,49 @@ h1,h2,h3,h4,h5 {
    font-size: 25px;
 }
 
-.newUser {
+.login .newUserLink {
    color: #EE7622;
    font-size: 15px;
+   text-align: center;
+}
+
+input[type=submit] {
+   margin-top: 7px;
    text-align: right;
 }
 
+
 /* -------------------------------- */
-/* Middle */
+/* New user page */
+/* -------------------------------- */
+.newUser {
+   border: 0;
+   left: 50%;
+   margin-left: -150px;
+   margin-top: -250px;
+   position: fixed;
+}
+
+.newUser .error {
+   color: red;
+}
+
+.newUser li {
+   font-size: 25px;
+}
+
+.newUser input {
+   font-size: 25px;
+}
+
+input[type=submit] {
+   margin-top: 7px;
+   text-align: right;
+}
+
+
+/* -------------------------------- */
+/* Midder - I made it up, it goes between the header and the footer */
 /* -------------------------------- */
 #midder {
    margin-top: 25%;
