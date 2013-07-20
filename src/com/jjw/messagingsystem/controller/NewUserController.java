@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jjw.messagingsystem.dto.UserDTO;
 
 @Controller
-@RequestMapping("/newUser")
+@RequestMapping("/newuser")
 public class NewUserController extends MessagingSystemControllerAbs
 {
     private static final Logger myLogger = Logger.getLogger(NewUserController.class.getName());

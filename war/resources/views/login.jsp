@@ -49,7 +49,7 @@
          </form>
 
          <!-- link that opens popup -->
-         <a class="newUserLink" href="/newUser">New User?</a>
+         <a class="newUserLink" href="/newuser">New User?</a>
 
       </div>
    </div>

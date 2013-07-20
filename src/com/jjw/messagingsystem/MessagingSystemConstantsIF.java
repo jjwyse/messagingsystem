@@ -8,7 +8,7 @@ public interface MessagingSystemConstantsIF
     // Views
     String VIEW_INBOX = "inbox";
     String VIEW_LOGIN = "login";
-    String VIEW_NEW_USER = "newUser";
+    String VIEW_NEW_USER = "newuser";
 
     // Entities
     String ENTITY_USER = "user";
