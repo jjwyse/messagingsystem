@@ -26,20 +26,21 @@ public class LoginController extends MessagingSystemControllerAbs
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String postLogin(@RequestParam("username") String username, ModelMap model)
+    public String postLogin(@RequestParam("userName") String userName, @RequestParam("password") String password,
+            ModelMap model)
     {
         myLogger.info("Handling post in login controller");
-        if (StringUtils.isEmpty(username))
+        if (StringUtils.isEmpty(userName))
         {
-            model.addAttribute(MODEL_ERROR, "Please enter a username");
+            model.addAttribute(MODEL_ERROR, "Please enter a userName");
             return VIEW_LOGIN;
         }
 
         // Check to see if user exists, and if they do, lets bring up their inbox
-        UserDTO user = myUserService.getUserInfo(username);
+        UserDTO user = myUserService.getUserInfo(userName, password);
         if (user == null)
         {
-            model.addAttribute(MODEL_ERROR, "No user with username: " + username + " in the system");
+            model.addAttribute(MODEL_ERROR, "That's embarassing...username/password are incorrect");
             return VIEW_LOGIN;
         }
 

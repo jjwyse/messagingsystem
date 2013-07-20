@@ -15,6 +15,7 @@ public class UserDTOUtil extends MessagingSystemDTOBuilder
         entity.setProperty(ENTITY_PROP_FIRST_NAME, user.getFirstName());
         entity.setProperty(ENTITY_PROP_LAST_NAME, user.getLastName());
         entity.setProperty(ENTITY_PROP_USERNAME, user.getUserName());
+        entity.setProperty(ENTITY_PROP_PASSWORD, user.getPassword());
         entity.setProperty(ENTITY_PROP_EMAIL, user.getEmail());
 
         return entity;
@@ -27,8 +28,9 @@ public class UserDTOUtil extends MessagingSystemDTOBuilder
         String firstName = (String) entity.getProperty(ENTITY_PROP_FIRST_NAME);
         String lastName = (String) entity.getProperty(ENTITY_PROP_LAST_NAME);
         String userName = (String) entity.getProperty(ENTITY_PROP_USERNAME);
+        String password = (String) entity.getProperty(ENTITY_PROP_PASSWORD);
         String email = (String) entity.getProperty(ENTITY_PROP_EMAIL);
 
-        return new UserDTO(firstName, lastName, userName, email);
+        return new UserDTO(firstName, lastName, userName, password, email);
     }
 }

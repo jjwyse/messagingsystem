@@ -27,15 +27,17 @@ public class NewUserController extends MessagingSystemControllerAbs
 
     @RequestMapping(method = RequestMethod.POST)
     public String postNewUser(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-            @RequestParam("userName") String userName, @RequestParam("email") String email, ModelMap model)
+            @RequestParam("userName") String userName, @RequestParam("password") String password,
+            @RequestParam("email") String email, ModelMap model)
     {
         Assert.notNull(firstName, "First name is null, we need one of those");
         Assert.notNull(lastName, "Last name is null, we need one of those");
         Assert.notNull(userName, "User name is null, we need one of those");
+        Assert.notNull(password, "Password is null, we need one of those");
 
         myLogger.info("Handling POST request in new user controller");
 
-        myUserService.addNewUser(new UserDTO(firstName, lastName, userName, email));
+        myUserService.addNewUser(new UserDTO(firstName, lastName, userName, password, email));
 
         return null;
     }

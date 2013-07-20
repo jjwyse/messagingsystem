@@ -31,7 +31,7 @@
                   <td class="label">Username:</td>
                </tr>
                <tr>
-                  <td><input type="text" name="username" value="${username}" placeholder="" required></td>
+                  <td><input type="text" name="userName" value="${userName}" placeholder="" required></td>
                </tr>
                <tr>
                   <td class="label">Password:</td>

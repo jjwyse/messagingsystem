@@ -18,8 +18,14 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public UserDTO getUserInfo(String username)
+    public UserDTO getUserInfo(String userName)
     {
-        return myUserDAO.getUserInfo(username);
+        return myUserDAO.getUserInfo(userName);
+    }
+
+    @Override
+    public UserDTO getUserInfo(String userName, String password)
+    {
+        return myUserDAO.getUserInfo(userName, password);
     }
 }

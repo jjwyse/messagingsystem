@@ -48,6 +48,14 @@
                <tr>
                   <td><input id="userName" name="userName" type="text" placeholder="" required></td>
                </tr>
+               <!-- Password -->
+               <tr>
+                  <td class="label">Password:</td>
+               </tr>
+               <tr>
+                  <td><input id="password" name="password" type="password" placeholder="" required></td>
+               </tr>
+               
                <!-- Email (optional) -->
                <tr>
                   <td class="label">Email:</td>

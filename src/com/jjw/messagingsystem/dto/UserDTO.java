@@ -5,17 +5,19 @@ public class UserDTO
     private String myFirstName;
     private String myLastName;
     private String myUserName;
+    private String myPassword;
     private String myEmail;
 
     public UserDTO()
     {
     }
 
-    public UserDTO(String firstName, String lastName, String userName, String email)
+    public UserDTO(String firstName, String lastName, String userName, String password, String email)
     {
         myFirstName = firstName;
         myLastName = lastName;
         myUserName = userName;
+        myPassword = password;
         myEmail = email;
     }
 
@@ -81,6 +83,22 @@ public class UserDTO
     public void setEmail(String email)
     {
         myEmail = email;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword()
+    {
+        return myPassword;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password)
+    {
+        myPassword = password;
     }
 
     /**

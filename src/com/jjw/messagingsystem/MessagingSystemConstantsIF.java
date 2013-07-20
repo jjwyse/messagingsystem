@@ -18,6 +18,7 @@ public interface MessagingSystemConstantsIF
     String ENTITY_PROP_FIRST_NAME = "firstName";
     String ENTITY_PROP_LAST_NAME = "lastName";
     String ENTITY_PROP_USERNAME = "userName";
+    String ENTITY_PROP_PASSWORD = "password";
 
     // Prefix for Spring MVC
     String REDIRECT = "redirect:";

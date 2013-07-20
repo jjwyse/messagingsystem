@@ -6,5 +6,7 @@ public interface UserDAO
 {
     void addNewUser(UserDTO user);
 
-    UserDTO getUserInfo(String username);
+    UserDTO getUserInfo(String userName);
+
+    UserDTO getUserInfo(String userName, String password);
 }
