@@ -1,0 +1,88 @@
+* {
+   color: #000000;
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+}
+
+body {
+   background: #F9F9F9;
+   font-family: 'Didact Gothic', sans-serif;
+   font-size: 34px;
+   letter-spacing: -1px;
+}
+
+h1,h2,h3,h4,h5 {
+   font-weight: normal;
+}
+
+/* -------------------------------- */
+/* Login page */
+/* -------------------------------- */
+.login {
+   left: 50%;
+   margin-left: -150px;
+   margin-top: -200px;
+   position: fixed;
+}
+
+.login .error {
+   color: red;
+}
+
+.login td {
+   font-size: 25px;
+}
+
+.login input {
+   font-size: 25px;
+}
+
+.newUser {
+   color: #EE7622;
+   font-size: 15px;
+   text-align: right;
+}
+
+/* -------------------------------- */
+/* Middle */
+/* -------------------------------- */
+#midder {
+   margin-top: 25%;
+}
+
+/* -------------------------------- */
+/* Header */
+/* -------------------------------- */
+.header {
+   background-color: #ffffff;
+   border-color: gray;
+   border-style: solid;
+   border-width: 1px;
+   opacity: 1.0;
+   position: fixed;
+   text-align: center;
+   top: 0;
+   width: 100%;
+}
+
+.header img {
+   margin-bottom: -10px;
+}
+
+/* -------------------------------- */
+/* Section: footer */
+/* -------------------------------- */
+.footer {
+   border-color: gray;
+   border-style: solid;
+   border-width: 1px;
+   background-color: #ffffff;
+   bottom: 0;
+   color: #000000;
+   font-size: 15px;
+   height: 26px;
+   position: fixed;
+   text-align: center;
+   width: 100%;
+}

@@ -4,7 +4,7 @@ public class UserDTO
 {
     private String myFirstName;
     private String myLastName;
-    private String myNickName;
+    private String myUserName;
 
     /**
      * @return the firstName
@@ -39,19 +39,19 @@ public class UserDTO
     }
 
     /**
-     * @return the nickName
+     * @return the userName
      */
-    public String getNickName()
+    public String getUserName()
     {
-        return myNickName;
+        return myUserName;
     }
 
     /**
-     * @param nickName the nickName to set
+     * @param userName the userName to set
      */
-    public void setNickName(String nickName)
+    public void setUserName(String userName)
     {
-        myNickName = nickName;
+        myUserName = userName;
     }
 
     /**
@@ -63,7 +63,7 @@ public class UserDTO
         StringBuilder user = new StringBuilder();
         user.append("firstName: " + myFirstName).append(", ");
         user.append("lastName: " + myLastName).append(", ");
-        user.append("nickName: " + myNickName);
+        user.append("userName: " + myUserName);
         return user.toString();
     }
 }

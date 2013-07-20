@@ -16,4 +16,10 @@ public class UserServiceImpl implements UserService
     {
         myUserDAO.addNewUser(user);
     }
+
+    @Override
+    public UserDTO getUserInfo(String username)
+    {
+        return myUserDAO.getUserInfo(username);
+    }
 }
