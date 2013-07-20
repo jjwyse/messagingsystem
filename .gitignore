@@ -2,4 +2,4 @@
 **/*.class
 *.*~
 **/*.*~
-**/classes
+**/classes/com/*
