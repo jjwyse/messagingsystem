@@ -12,7 +12,7 @@ import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dao.UserDAO;
 import com.jjw.messagingsystem.dto.UserDTO;
-import com.jjw.messagingsystem.dto.builder.UserDTOBuilder;
+import com.jjw.messagingsystem.dto.util.UserDTOUtil;
 
 public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
 {
@@ -25,7 +25,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
 
         myLogger.info("Putting user: " + user + " into datastore");
 
-        datastore.put(UserDTOBuilder.toEntity(user));
+        datastore.put(UserDTOUtil.toEntity(user));
     }
 
     @Override
@@ -40,7 +40,6 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
         Query query = new Query().setFilter(usernameFilter);
 
         PreparedQuery preparedQuery = datastore.prepare(query);
-
-        return UserDTOBuilder.fromEntity(preparedQuery.asSingleEntity());
+        return UserDTOUtil.fromEntity(preparedQuery.asSingleEntity());
     }
 }

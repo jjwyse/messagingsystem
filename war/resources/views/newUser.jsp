@@ -4,13 +4,13 @@
 <head>
 <title>Udacity | Internal Messaging</title>
 <link rel="shortcut icon" href="/resources/images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="/resources/css/magnific-popup.css">
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/magnific-popup.css">-->
 <link rel="stylesheet" type="text/css" href="/resources/css/messagingsystem.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
 <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="/resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="/resources/js/jquery.easing-1.3.js"></script>
-<script type="text/javascript" src="/resources/js/magnificent.popup-0.9.3.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/magnificent.popup-0.9.3.js"></script>-->
 <script type="text/javascript" src="/resources/js/messagingsystem.js"></script>
 </head>
 <body>
@@ -24,27 +24,38 @@
    </div>
    <div id="midder">
       <div class="newUser">
-         <form method="POST">
+         <form method="POST" action="">
             <h1>Sign Up:</h1>
             <table>
+               <!-- First name -->
                <tr>
                   <td class="label">First Name:</td>
                </tr>
                <tr>
                   <td><input id="firstName" name="firstName" type="text" placeholder="" required></td>
                </tr>
+               <!-- Last name -->
                <tr>
                   <td class="label">Last Name:</td>
                </tr>
                <tr>
                   <td><input id="lastName" name="lastName" type="text" placeholder="" required></td>
                </tr>
+               <!-- User name -->
+               <tr>
+                  <td class="label">User Name:</td>
+               </tr>
+               <tr>
+                  <td><input id="userName" name="userName" type="text" placeholder="" required></td>
+               </tr>
+               <!-- Email (optional) -->
                <tr>
                   <td class="label">Email:</td>
                </tr>
                <tr>
-                  <td><input id="email" name="email" type="email" placeholder="example@domain.com" required></td>
+                  <td><input id="email" name="email" type="email" placeholder="example@domain.com"></td>
                </tr>
+               <!-- Submit button -->
                <tr>
                   <td><input type="submit" value="Sign Up"></td>
                </tr>

@@ -14,6 +14,7 @@ public interface MessagingSystemConstantsIF
     String ENTITY_USER = "user";
 
     // Entities' properties
+    String ENTITY_PROP_EMAIL = "email";
     String ENTITY_PROP_FIRST_NAME = "firstName";
     String ENTITY_PROP_LAST_NAME = "lastName";
     String ENTITY_PROP_USERNAME = "userName";

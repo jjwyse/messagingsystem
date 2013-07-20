@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.dto.builder;
+package com.jjw.messagingsystem.dto.util;
 
 import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 

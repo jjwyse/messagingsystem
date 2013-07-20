@@ -5,6 +5,19 @@ public class UserDTO
     private String myFirstName;
     private String myLastName;
     private String myUserName;
+    private String myEmail;
+
+    public UserDTO()
+    {
+    }
+
+    public UserDTO(String firstName, String lastName, String userName, String email)
+    {
+        myFirstName = firstName;
+        myLastName = lastName;
+        myUserName = userName;
+        myEmail = email;
+    }
 
     /**
      * @return the firstName
@@ -52,6 +65,22 @@ public class UserDTO
     public void setUserName(String userName)
     {
         myUserName = userName;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail()
+    {
+        return myEmail;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email)
+    {
+        myEmail = email;
     }
 
     /**
