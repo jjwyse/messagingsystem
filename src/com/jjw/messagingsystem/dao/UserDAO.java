@@ -1,12 +1,12 @@
 package com.jjw.messagingsystem.dao;
 
-import com.jjw.messagingsystem.dto.UserDTO;
+import com.jjw.messagingsystem.dto.UdacityUser;
 
 public interface UserDAO
 {
-    void addNewUser(UserDTO user);
+    UdacityUser findUser(String userId);
 
-    UserDTO getUserInfo(String userName);
+    void registerUser(UdacityUser newUser);
 
-    UserDTO getUserInfo(String userName, String password);
+    void removeUser(String userId);
 }

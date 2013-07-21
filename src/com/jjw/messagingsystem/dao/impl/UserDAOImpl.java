@@ -1,70 +1,96 @@
 package com.jjw.messagingsystem.dao.impl;
 
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.Set;
 import java.util.logging.Logger;
+
+import org.springframework.security.core.GrantedAuthority;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.CompositeFilterOperator;
-import com.google.appengine.api.datastore.Query.Filter;
-import com.google.appengine.api.datastore.Query.FilterOperator;
-import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.UserDTO;
-import com.jjw.messagingsystem.dto.util.UserDTOUtil;
+import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.security.util.AppRole;
 
 public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
 {
     private static final Logger myLogger = Logger.getLogger(UserDAOImpl.class.getName());
 
     @Override
-    public void addNewUser(UserDTO user)
+    public UdacityUser findUser(String userId)
     {
+        Key key = KeyFactory.createKey(USER_TYPE, userId);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-        myLogger.info("Putting user: " + user + " into datastore");
-
-        datastore.put(UserDTOUtil.toEntity(user));
-    }
-
-    @Override
-    public UserDTO getUserInfo(String userName)
-    {
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
-        myLogger.info("Retrieving user information for user with username: " + userName);
-
-        Filter userNameFilter = new FilterPredicate(ENTITY_PROP_USERNAME, FilterOperator.EQUAL, userName);
-
-        Query query = new Query(ENTITY_USER).setFilter(userNameFilter);
-
-        PreparedQuery preparedQuery = datastore.prepare(query);
-        return UserDTOUtil.fromEntity(preparedQuery.asSingleEntity());
-    }
-
-    @Override
-    public UserDTO getUserInfo(String userName, String password)
-    {
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
-        myLogger.info("Retrieving user information for user with username: " + userName);
-
-        Filter userNameFilter = new FilterPredicate(ENTITY_PROP_USERNAME, FilterOperator.EQUAL, userName);
-        Filter passwordFilter = new FilterPredicate(ENTITY_PROP_PASSWORD, FilterOperator.EQUAL, password);
-
-        // Use CompositeFilter to combine multiple filters
-        Filter userNameAndPasswordFilter = CompositeFilterOperator.and(userNameFilter, passwordFilter);
-
-        Query query = new Query(ENTITY_USER).setFilter(userNameAndPasswordFilter);
-
-        PreparedQuery preparedQuery = datastore.prepare(query);
-        for (Entity entity : preparedQuery.asIterable())
+        try
         {
-            return UserDTOUtil.fromEntity(entity);
+            Entity user = datastore.get(key);
+
+            long binaryAuthorities = (Long) user.getProperty(USER_AUTHORITIES);
+            Set<AppRole> roles = EnumSet.noneOf(AppRole.class);
+
+            for (AppRole r : AppRole.values())
+            {
+                if ((binaryAuthorities & (1 << r.getBit())) != 0)
+                {
+                    roles.add(r);
+                }
+            }
+
+            UdacityUser udacityUser = new UdacityUser(user.getKey().getName(), (String) user.getProperty(USER_NICKNAME),
+                    (String) user.getProperty(USER_EMAIL), (String) user.getProperty(USER_FORENAME),
+                    (String) user.getProperty(USER_SURNAME), roles, (Boolean) user.getProperty(USER_ENABLED));
+
+            return udacityUser;
+
         }
-        return null;
+        catch (EntityNotFoundException e)
+        {
+            myLogger.warning(userId + " not found in datastore");
+            return null;
+        }
+    }
+
+    @Override
+    public void registerUser(UdacityUser newUser)
+    {
+        myLogger.info("Attempting to create new user " + newUser);
+
+        Key key = KeyFactory.createKey(USER_TYPE, newUser.getUserId());
+        Entity user = new Entity(key);
+        user.setProperty(USER_EMAIL, newUser.getEmail());
+        user.setProperty(USER_NICKNAME, newUser.getNickname());
+        user.setProperty(USER_FORENAME, newUser.getForename());
+        user.setProperty(USER_SURNAME, newUser.getSurname());
+        user.setUnindexedProperty(USER_ENABLED, newUser.isEnabled());
+
+        Collection<? extends GrantedAuthority> roles = newUser.getAuthorities();
+
+        long binaryAuthorities = 0;
+
+        for (GrantedAuthority r : roles)
+        {
+            binaryAuthorities |= 1 << ((AppRole) r).getBit();
+        }
+
+        user.setUnindexedProperty(USER_AUTHORITIES, binaryAuthorities);
+
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        datastore.put(user);
+    }
+
+    @Override
+    public void removeUser(String userId)
+    {
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key key = KeyFactory.createKey(USER_TYPE, userId);
+
+        datastore.delete(key);
     }
 }

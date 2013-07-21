@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping({ "/", "/home" })
-public class MainController extends MessagingSystemControllerAbs
+@RequestMapping("/")
+public class HomeController extends MessagingSystemControllerAbs
 {
-    private static final Logger myLogger = Logger.getLogger(MainController.class.getName());
+    private static final Logger myLogger = Logger.getLogger(HomeController.class.getName());
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getMain(ModelMap model)
+    public String getHome(ModelMap model)
     {
-        myLogger.info("Handling GET in main controller");
+        myLogger.info("Handling GET request in home controller");
 
-        return REDIRECT + VIEW_LOGIN;
+        return REDIRECT + VIEW_INBOX;
     }
 }

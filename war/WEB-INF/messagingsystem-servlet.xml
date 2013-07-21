@@ -8,6 +8,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
+   
+   <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
    <!-- Resolve all views to JSPs in /resources/views directory -->
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix">

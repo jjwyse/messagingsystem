@@ -1,10 +1,8 @@
 /**
  * 
  */
-package com.jjw.messagingsystem.security;
+package com.jjw.messagingsystem.security.validation;
 
-import com.jjw.messagingsystem.security.validation.Forename;
-import com.jjw.messagingsystem.security.validation.Surname;
 
 /**
  * 

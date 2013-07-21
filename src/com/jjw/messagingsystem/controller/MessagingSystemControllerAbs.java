@@ -9,5 +9,4 @@ public abstract class MessagingSystemControllerAbs implements MessagingSystemCon
 {
     @Autowired
     protected UserService myUserService;
-
 }

@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security;
+package com.jjw.messagingsystem.security.util;
 
 import org.springframework.security.core.GrantedAuthority;
 

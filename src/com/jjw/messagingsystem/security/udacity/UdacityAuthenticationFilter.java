@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security;
+package com.jjw.messagingsystem.security.udacity;
 
 import java.io.IOException;
 
@@ -22,16 +22,17 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
+import com.jjw.messagingsystem.security.util.AppRole;
 
-public class GaeAuthenticationFilter extends GenericFilterBean
+public class UdacityAuthenticationFilter extends GenericFilterBean implements MessagingSystemConstantsIF
 {
-    private static final String REGISTRATION_URL = "/register.htm";
     private AuthenticationDetailsSource ads = new WebAuthenticationDetailsSource();
     private AuthenticationManager authenticationManager;
     private AuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-                    ServletException
+            ServletException
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -49,12 +50,14 @@ public class GaeAuthenticationFilter extends GenericFilterBean
                 try
                 {
                     authentication = authenticationManager.authenticate(token);
+
                     // Setup the security context
                     SecurityContextHolder.getContext().setAuthentication(authentication);
+
                     // Send new users to the registration page.
                     if (authentication.getAuthorities().contains(AppRole.NEW_USER))
                     {
-                        ((HttpServletResponse) response).sendRedirect(REGISTRATION_URL);
+                        ((HttpServletResponse) response).sendRedirect(VIEW_REGISTER);
                         return;
                     }
                 }
@@ -62,7 +65,7 @@ public class GaeAuthenticationFilter extends GenericFilterBean
                 {
                     // Authentication information was rejected by the authentication manager
                     failureHandler.onAuthenticationFailure((HttpServletRequest) request,
-                                    (HttpServletResponse) response, e);
+                            (HttpServletResponse) response, e);
                     return;
                 }
             }

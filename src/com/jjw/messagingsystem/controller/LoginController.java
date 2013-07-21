@@ -2,14 +2,11 @@ package com.jjw.messagingsystem.controller;
 
 import java.util.logging.Logger;
 
-import org.datanucleus.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.jjw.messagingsystem.dto.UserDTO;
 
 @Controller
 @RequestMapping("/login")
@@ -30,21 +27,6 @@ public class LoginController extends MessagingSystemControllerAbs
             ModelMap model)
     {
         myLogger.info("Handling post in login controller");
-        if (StringUtils.isEmpty(userName))
-        {
-            model.addAttribute(MODEL_ERROR, "Please enter a userName");
-            return VIEW_LOGIN;
-        }
-
-        // Check to see if user exists, and if they do, lets bring up their inbox
-        UserDTO user = myUserService.getUserInfo(userName, password);
-        if (user == null)
-        {
-            model.addAttribute(MODEL_ERROR, "That's embarassing...username/password are incorrect");
-            return VIEW_LOGIN;
-        }
-
-        myLogger.info("Successfully logged in as user: " + user);
 
         return REDIRECT + VIEW_INBOX;
     }

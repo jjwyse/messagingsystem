@@ -9,16 +9,19 @@ public interface MessagingSystemConstantsIF
     String VIEW_INBOX = "inbox";
     String VIEW_LOGIN = "login";
     String VIEW_NEW_USER = "newuser";
+    String VIEW_REGISTER = "/register";
 
     // Entities
     String ENTITY_USER = "user";
 
-    // Entities' properties
-    String ENTITY_PROP_EMAIL = "email";
-    String ENTITY_PROP_FIRST_NAME = "firstName";
-    String ENTITY_PROP_LAST_NAME = "lastName";
-    String ENTITY_PROP_USERNAME = "userName";
-    String ENTITY_PROP_PASSWORD = "password";
+    // Udacity users' entity properties
+    String USER_TYPE = "RegisteredUser";
+    String USER_FORENAME = "forename";
+    String USER_SURNAME = "surname";
+    String USER_NICKNAME = "nickname";
+    String USER_EMAIL = "email";
+    String USER_ENABLED = "enabled";
+    String USER_AUTHORITIES = "authorities";
 
     // Prefix for Spring MVC
     String REDIRECT = "redirect:";

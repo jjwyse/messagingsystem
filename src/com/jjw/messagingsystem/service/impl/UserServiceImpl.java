@@ -3,7 +3,7 @@ package com.jjw.messagingsystem.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.UserDTO;
+import com.jjw.messagingsystem.dto.UdacityUser;
 import com.jjw.messagingsystem.service.UserService;
 
 public class UserServiceImpl implements UserService
@@ -11,21 +11,19 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserDAO myUserDAO;
 
-    @Override
-    public void addNewUser(UserDTO user)
+    public UdacityUser findUser(String userId)
     {
-        myUserDAO.addNewUser(user);
+        return myUserDAO.findUser(userId);
     }
 
-    @Override
-    public UserDTO getUserInfo(String userName)
+    public void registerUser(UdacityUser newUser)
     {
-        return myUserDAO.getUserInfo(userName);
+        myUserDAO.registerUser(newUser);
     }
 
-    @Override
-    public UserDTO getUserInfo(String userName, String password)
+    public void removeUser(String userId)
     {
-        return myUserDAO.getUserInfo(userName, password);
+        myUserDAO.removeUser(userId);
     }
+
 }

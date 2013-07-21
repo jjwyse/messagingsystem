@@ -1,12 +1,14 @@
 package com.jjw.messagingsystem.service;
 
-import com.jjw.messagingsystem.dto.UserDTO;
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
+import com.jjw.messagingsystem.dto.UdacityUser;
 
-public interface UserService
+public interface UserService extends MessagingSystemConstantsIF
 {
-    void addNewUser(UserDTO user);
+    UdacityUser findUser(String userId);
 
-    UserDTO getUserInfo(String username);
+    void registerUser(UdacityUser newUser);
 
-    UserDTO getUserInfo(String username, String password);
+    void removeUser(String userId);
+
 }

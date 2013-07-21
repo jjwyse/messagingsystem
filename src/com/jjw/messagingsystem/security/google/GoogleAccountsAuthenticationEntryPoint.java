@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security;
+package com.jjw.messagingsystem.security.google;
 
 import java.io.IOException;
 
@@ -22,10 +22,12 @@ public class GoogleAccountsAuthenticationEntryPoint implements AuthenticationEnt
      */
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
-                    AuthenticationException authenticationException) throws IOException, ServletException
+            AuthenticationException authenticationException) throws IOException, ServletException
     {
         UserService userService = UserServiceFactory.getUserService();
 
-        response.sendRedirect(userService.createLoginURL(request.getRequestURI()));
+        String loginUrl = request.getRequestURI();
+
+        response.sendRedirect(userService.createLoginURL(loginUrl));
     }
 }

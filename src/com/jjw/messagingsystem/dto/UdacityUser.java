@@ -1,16 +1,18 @@
 /**
  * 
  */
-package com.jjw.messagingsystem.security;
+package com.jjw.messagingsystem.dto;
 
 import java.io.Serializable;
 import java.util.Set;
+
+import com.jjw.messagingsystem.security.util.AppRole;
 
 /**
  * @author jjwyse
  * 
  */
-public class GaeUser implements Serializable
+public class UdacityUser implements Serializable
 {
     /** Serial ID */
     private static final long serialVersionUID = 1L;
@@ -21,10 +23,10 @@ public class GaeUser implements Serializable
     private String myForename;
     private String mySurname;
     private Set<AppRole> myAuthorities;
-    private boolean myEnabled;
+    private boolean myEnabled = true;
 
-    public GaeUser(String userId, String nickname, String email, String forename, String surname,
-                    Set<AppRole> authorities, boolean isEnabled)
+    public UdacityUser(String userId, String nickname, String email, String forename, String surname,
+            Set<AppRole> authorities, boolean isEnabled)
     {
         myUserId = userId;
         myEmail = email;
@@ -40,11 +42,12 @@ public class GaeUser implements Serializable
      * @param nickname
      * @param email
      */
-    public GaeUser(String userId, String nickname, String email)
+    public UdacityUser(String userId, String nickname, String email, Set<AppRole> authorities)
     {
         myUserId = userId;
         myNickname = nickname;
         myEmail = email;
+        myAuthorities = authorities;
     }
 
     /**
@@ -56,8 +59,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param userId
-     *            the userId to set
+     * @param userId the userId to set
      */
     public void setUserId(String userId)
     {
@@ -73,8 +75,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param email
-     *            the email to set
+     * @param email the email to set
      */
     public void setEmail(String email)
     {
@@ -90,8 +91,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param nickname
-     *            the nickname to set
+     * @param nickname the nickname to set
      */
     public void setNickname(String nickname)
     {
@@ -107,8 +107,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param forename
-     *            the forename to set
+     * @param forename the forename to set
      */
     public void setForename(String forename)
     {
@@ -124,8 +123,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param surname
-     *            the surname to set
+     * @param surname the surname to set
      */
     public void setSurname(String surname)
     {
@@ -141,8 +139,7 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param authorities
-     *            the authorities to set
+     * @param authorities the authorities to set
      */
     public void setAuthorities(Set<AppRole> authorities)
     {
@@ -158,11 +155,17 @@ public class GaeUser implements Serializable
     }
 
     /**
-     * @param enabled
-     *            the enabled to set
+     * @param enabled the enabled to set
      */
     public void setEnabled(boolean enabled)
     {
         this.myEnabled = enabled;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "GaeUser{" + "userId='" + myUserId + '\'' + ", nickname='" + myNickname + '\'' + ", forename='"
+                + myForename + '\'' + ", surname='" + mySurname + '\'' + ", authorities=" + myAuthorities + '}';
     }
 }
