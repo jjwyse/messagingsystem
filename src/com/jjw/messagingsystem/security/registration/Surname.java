@@ -24,7 +24,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = SurnameValidator.class)
 public @interface Surname
 {
-    String message() default "Last name is required";
+    String message() default "Invalid last name";
 
     Class<?>[] groups() default {};
 

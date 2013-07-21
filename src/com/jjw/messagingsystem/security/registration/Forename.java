@@ -20,7 +20,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = ForenameValidator.class)
 public @interface Forename
 {
-    String message() default "First name is required";
+    String message() default "Invalid first name";
 
     Class<?>[] groups() default {};
 
