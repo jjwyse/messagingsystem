@@ -1,40 +1,55 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/static/css/gae.css" type="text/css" />
-<title>Registration</title>
+<title>Udacity | Internal Messaging | Registration</title>
+<link rel="shortcut icon" href="/resources/images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/resources/css/messagingsystem.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="/resources/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.easing-1.3.js"></script>
+<script type="text/javascript" src="/resources/js/messagingsystem.js"></script>
 </head>
 <body>
-<div id="content">
-<p>
-Welcome to the Spring Security GAE sample application, <sec:authentication property="principal.nickname" />.
-Please enter your registration details in order to use the application.
-</p>
-<p>
-The data you enter here will be registered in the application's GAE data store, keyed under your unique
-Google Accounts identifier. It doesn't have to be accurate. When you log in again, the information will be automatically
-retrieved.
-</p>
+   <div class="header">
+      <h3>
+         <a href="http://joshuawyse-messagingsystem.appspot.com">
+            <img alt="" src="/resources/images/udacity_logo_50x50.png"></img>
+            Udacity Internal Messaging
+         </a>
+      </h3>
+   </div>
 
-<form:form id="register" method="post" modelAttribute="registrationForm">
-  	<fieldset>
-  		<form:label path="forename">
-  		Forename:
- 		</form:label> <form:errors path="forename" cssClass="fieldError" /><br />
-  		<form:input path="forename" /> <br />
-
-  		<form:label path="surname">
-  		Surname:
- 		</form:label><form:errors path="surname" cssClass="fieldError" /> <br />
-  		<form:input path="surname" /><br />
-	</fieldset>
-	<input type="submit" value="Register">
-</form:form>
+   <div id="midder">
+      <div class="register">
+         <p>
+            Welcome <sec:authentication property="principal.nickname" />
+         </p>
+         <h4>Register for the Udacity Internal Messaging System:</h4>
+   
+         <form:form id="register" method="post" modelAttribute="registrationForm">
+            <fieldset>
+               <form:label path="forename">Forename:</form:label>
+               <br />
+               <form:input path="forename" />
+               <form:errors path="forename" cssClass="error" />
+               <br />
+   
+               <form:label path="surname">Surname:</form:label>
+               <br />
+               <form:input path="surname" />
+               <form:errors path="surname" cssClass="error" />
+               <br />               
+            </fieldset>
+            <input type="submit" value="Register">
+         </form:form>
+      </div>
+      <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>
 </body>
-</div>
 </html>

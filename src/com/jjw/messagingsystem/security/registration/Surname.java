@@ -3,30 +3,30 @@
  */
 package com.jjw.messagingsystem.security.registration;
 
-import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * 
  * @author Luke Taylor
  */
 
-@Target(
-{ METHOD, FIELD, ANNOTATION_TYPE })
+@Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = SurnameValidator.class)
 public @interface Surname
 {
-    String message() default "{samples.gae.surname}";
+    String message() default "Last name is required";
 
-    Class<?>[] groups() default
-    {};
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default
-    {};
+    Class<? extends Payload>[] payload() default {};
 }
