@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.appengine.api.users.UserServiceFactory;
 import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.security.registration.RegistrationForm;
 import com.jjw.messagingsystem.security.udacity.UdacityUserAuthentication;
 import com.jjw.messagingsystem.security.util.AppRole;
-import com.jjw.messagingsystem.security.validation.RegistrationForm;
 import com.jjw.messagingsystem.service.UserService;
 
 /**

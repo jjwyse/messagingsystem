@@ -1,27 +1,28 @@
-package com.jjw.messagingsystem.security.validation;
-
-import static java.lang.annotation.ElementType.*;
-
-import javax.validation.Payload;
-
-import java.lang.annotation.Retention;
-
-import java.lang.annotation.RetentionPolicy;
-
-import java.lang.annotation.Target;
-import javax.validation.Constraint;
-
 /**
- * @author jjwyse
  * 
  */
+package com.jjw.messagingsystem.security.registration;
+
+import static java.lang.annotation.ElementType.*;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import org.hibernate.validator.constraints.NotBlank;
+
+/**
+ * 
+ * @author Luke Taylor
+ */
+
 @Target(
 { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ForenameValidator.class)
-public @interface Forename
+@Constraint(validatedBy = SurnameValidator.class)
+public @interface Surname
 {
-    String message() default "{com.jjw.messagingsystem.security.validation.Forename}";
+    String message() default "{samples.gae.surname}";
 
     Class<?>[] groups() default
     {};

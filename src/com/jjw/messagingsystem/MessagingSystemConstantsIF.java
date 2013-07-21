@@ -7,7 +7,6 @@ public interface MessagingSystemConstantsIF
 
     // Views
     String VIEW_INBOX = "inbox";
-    String VIEW_LOGIN = "login";
     String VIEW_NEW_USER = "newuser";
     String VIEW_REGISTER = "/register";
 
@@ -15,7 +14,7 @@ public interface MessagingSystemConstantsIF
     String ENTITY_USER = "user";
 
     // Udacity users' entity properties
-    String USER_TYPE = "RegisteredUser";
+    String USER_TYPE = "UdacityMessagingSystemUser";
     String USER_FORENAME = "forename";
     String USER_SURNAME = "surname";
     String USER_NICKNAME = "nickname";

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jjw.messagingsystem.security.validation;
+package com.jjw.messagingsystem.security.registration;
 
 
 /**
