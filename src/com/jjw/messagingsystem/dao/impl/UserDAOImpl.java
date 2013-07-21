@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
 import com.jjw.messagingsystem.security.util.AppRole;
 
 public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
@@ -23,7 +23,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     private static final Logger myLogger = Logger.getLogger(UserDAOImpl.class.getName());
 
     @Override
-    public UdacityUser findUser(String userId)
+    public GoogleAppEngineUser findUser(String userId)
     {
         Key key = KeyFactory.createKey(USER_TYPE, userId);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -43,11 +43,12 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
                 }
             }
 
-            UdacityUser udacityUser = new UdacityUser(user.getKey().getName(), (String) user.getProperty(USER_NICKNAME),
-                    (String) user.getProperty(USER_EMAIL), (String) user.getProperty(USER_FORENAME),
-                    (String) user.getProperty(USER_SURNAME), roles, (Boolean) user.getProperty(USER_ENABLED));
+            GoogleAppEngineUser googleAppEngineUser = new GoogleAppEngineUser(user.getKey().getName(),
+                    (String) user.getProperty(USER_NICKNAME), (String) user.getProperty(USER_EMAIL),
+                    (String) user.getProperty(USER_FORENAME), (String) user.getProperty(USER_SURNAME), roles,
+                    (Boolean) user.getProperty(USER_ENABLED));
 
-            return udacityUser;
+            return googleAppEngineUser;
 
         }
         catch (EntityNotFoundException e)
@@ -58,7 +59,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     }
 
     @Override
-    public void registerUser(UdacityUser newUser)
+    public void registerUser(GoogleAppEngineUser newUser)
     {
         myLogger.info("Attempting to create new user " + newUser);
 

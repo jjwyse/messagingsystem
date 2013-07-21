@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.appengine.api.users.UserServiceFactory;
-import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
 import com.jjw.messagingsystem.security.registration.RegistrationForm;
-import com.jjw.messagingsystem.security.udacity.UdacityUserAuthentication;
 import com.jjw.messagingsystem.security.util.AppRole;
 import com.jjw.messagingsystem.service.UserService;
 
@@ -54,7 +54,7 @@ public class RegistrationController extends MessagingSystemControllerAbs
         }
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UdacityUser currentUser = (UdacityUser) authentication.getPrincipal();
+        GoogleAppEngineUser currentUser = (GoogleAppEngineUser) authentication.getPrincipal();
         Set<AppRole> roles = EnumSet.of(AppRole.USER);
 
         if (UserServiceFactory.getUserService().isUserAdmin())
@@ -62,14 +62,14 @@ public class RegistrationController extends MessagingSystemControllerAbs
             roles.add(AppRole.ADMIN);
         }
 
-        UdacityUser user = new UdacityUser(currentUser.getUserId(), currentUser.getNickname(), currentUser.getEmail(),
-                form.getForename(), form.getSurname(), roles, true);
+        GoogleAppEngineUser user = new GoogleAppEngineUser(currentUser.getUserId(), currentUser.getNickname(),
+                currentUser.getEmail(), form.getForename(), form.getSurname(), roles, true);
 
         myUserService.registerUser(user);
 
         // Update the context with the full authentication
         SecurityContextHolder.getContext().setAuthentication(
-                new UdacityUserAuthentication(user, authentication.getDetails()));
+                new GoogleAppEngineUserAuthentication(user, authentication.getDetails()));
 
         return REDIRECT + VIEW_INBOX;
     }

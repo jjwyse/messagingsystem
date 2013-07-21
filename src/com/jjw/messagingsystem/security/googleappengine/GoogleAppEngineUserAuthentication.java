@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security.udacity;
+package com.jjw.messagingsystem.security.googleappengine;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -6,20 +6,20 @@ import java.util.HashSet;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
 
 /**
  * Authentication object representing a fully-authenticated user.
  * 
  * @author Luke Taylor
  */
-public class UdacityUserAuthentication implements Authentication
+public class GoogleAppEngineUserAuthentication implements Authentication
 {
-    private final UdacityUser myPrincipal;
+    private final GoogleAppEngineUser myPrincipal;
     private final Object myDetails;
     private boolean myAuthenticated;
 
-    public UdacityUserAuthentication(UdacityUser principal, Object details)
+    public GoogleAppEngineUserAuthentication(GoogleAppEngineUser principal, Object details)
     {
         this.myPrincipal = principal;
         this.myDetails = details;

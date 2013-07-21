@@ -11,8 +11,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import com.google.appengine.api.users.User;
-import com.jjw.messagingsystem.dto.UdacityUser;
-import com.jjw.messagingsystem.security.udacity.UdacityUserAuthentication;
+import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
 import com.jjw.messagingsystem.security.util.AppRole;
 import com.jjw.messagingsystem.service.UserService;
 
@@ -25,14 +25,15 @@ public class GoogleAccountsAuthenticationProvider implements AuthenticationProvi
     {
         User googleUser = (User) authentication.getPrincipal();
 
-        UdacityUser user = myUserService.findUser(googleUser.getUserId());
+        GoogleAppEngineUser user = myUserService.findUser(googleUser.getUserId());
 
         if (user == null)
         {
             // User not in registry. Needs to register and add the NEW_USER role
             Set<AppRole> authorities = new HashSet<AppRole>();
             authorities.add(AppRole.NEW_USER);
-            user = new UdacityUser(googleUser.getUserId(), googleUser.getNickname(), googleUser.getEmail(), authorities);
+            user = new GoogleAppEngineUser(googleUser.getUserId(), googleUser.getNickname(), googleUser.getEmail(),
+                    authorities);
         }
 
         if (!user.isEnabled())
@@ -40,7 +41,7 @@ public class GoogleAccountsAuthenticationProvider implements AuthenticationProvi
             throw new DisabledException("Account is disabled");
         }
 
-        return new UdacityUserAuthentication(user, authentication.getDetails());
+        return new GoogleAppEngineUserAuthentication(user, authentication.getDetails());
     }
 
     public final boolean supports(Class<?> authentication)

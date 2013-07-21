@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security.udacity;
+package com.jjw.messagingsystem.security.googleappengine;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 import com.jjw.messagingsystem.security.util.AppRole;
 
-public class UdacityAuthenticationFilter extends GenericFilterBean implements MessagingSystemConstantsIF
+public class GoogleAppEngineAuthenticationFilter extends GenericFilterBean implements MessagingSystemConstantsIF
 {
     private AuthenticationDetailsSource ads = new WebAuthenticationDetailsSource();
     private AuthenticationManager authenticationManager;

@@ -1,12 +1,12 @@
 package com.jjw.messagingsystem.dao;
 
-import com.jjw.messagingsystem.dto.UdacityUser;
+import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
 
 public interface UserDAO
 {
-    UdacityUser findUser(String userId);
+    GoogleAppEngineUser findUser(String userId);
 
-    void registerUser(UdacityUser newUser);
+    void registerUser(GoogleAppEngineUser newUser);
 
     void removeUser(String userId);
 }

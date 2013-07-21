@@ -12,7 +12,7 @@ import com.jjw.messagingsystem.security.util.AppRole;
  * @author jjwyse
  * 
  */
-public class UdacityUser implements Serializable
+public class GoogleAppEngineUser implements Serializable
 {
     /** Serial ID */
     private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class UdacityUser implements Serializable
     private Set<AppRole> myAuthorities;
     private boolean myEnabled = true;
 
-    public UdacityUser(String userId, String nickname, String email, String forename, String surname,
+    public GoogleAppEngineUser(String userId, String nickname, String email, String forename, String surname,
             Set<AppRole> authorities, boolean isEnabled)
     {
         myUserId = userId;
@@ -42,7 +42,7 @@ public class UdacityUser implements Serializable
      * @param nickname
      * @param email
      */
-    public UdacityUser(String userId, String nickname, String email, Set<AppRole> authorities)
+    public GoogleAppEngineUser(String userId, String nickname, String email, Set<AppRole> authorities)
     {
         myUserId = userId;
         myNickname = nickname;

@@ -23,7 +23,7 @@
 
    <bean id="gaeEntryPoint" class="com.jjw.messagingsystem.security.google.GoogleAccountsAuthenticationEntryPoint" />
 
-   <bean id="gaeFilter" class="com.jjw.messagingsystem.security.udacity.UdacityAuthenticationFilter">
+   <bean id="gaeFilter" class="com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineAuthenticationFilter">
       <property name="authenticationManager" ref="authenticationManager" />
       <property name="failureHandler">
          <bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
