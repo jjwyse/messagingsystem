@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jjw.messagingsystem.security.validation;
+package com.jjw.messagingsystem.security.registration;
 
 import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
@@ -11,12 +11,11 @@ import javax.validation.ConstraintValidatorContext;
  * 
  * @author Luke Taylor
  */
-
-public class SurnameValidator implements ConstraintValidator<Surname, String>
+public class ForenameValidator implements ConstraintValidator<Forename, String>
 {
     private static final Pattern VALID = Pattern.compile("[\\p{L}'\\-,.]+");
 
-    public void initialize(Surname constraintAnnotation)
+    public void initialize(Forename constraintAnnotation)
     {
     }
 
