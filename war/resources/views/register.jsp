@@ -1,9 +1,10 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -19,7 +20,7 @@
 <body>
    <div class="header">
       <h3>
-         <a href="http://joshuawyse-messagingsystem.appspot.com">
+         <a href="/">
             <img alt="" src="/resources/images/udacity_logo_50x50.png"></img>
             Udacity Internal Messaging
          </a>
@@ -28,12 +29,9 @@
 
    <div id="midder">
       <div class="register">
-         <p>
-            Welcome <sec:authentication property="principal.userName" />
-         </p>
-         <h4>Register for the Udacity Internal Messaging System:</h4>
-   
+         <h2>Register for the Messaging System:</h2>
          <form:form id="register" method="post" modelAttribute="registrationForm">
+            <br/>
             <fieldset>
                <form:label path="firstName">First Name:</form:label>
                <br />
@@ -51,6 +49,10 @@
                <br />
                <form:input path="groups" />
                <form:errors path="groups" cssClass="error" />
+               <br />
+               <label>User Name:</label>
+               <br />
+               <input type="text" value="<sec:authentication property="principal.userName" />" readonly style="background-color: #EE7622">
                <br />
             </fieldset>
             <input type="submit" value="Register">

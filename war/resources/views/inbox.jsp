@@ -12,6 +12,17 @@
 <script type="text/javascript" src="/resources/js/messagingsystem.js"></script>
 </head>
 <body>
-   <h1>Inbox</h1>
+   <div class="header">
+      <h3>
+         <a href="/">
+            <img alt="" src="/resources/images/udacity_logo_50x50.png"></img>
+            Udacity Internal Messaging
+         </a>
+      </h3>
+   </div>
+   <div id="midder">
+      <h1>Inbox</h1>
+   </div>
+   <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>
 </body>
 </html>

@@ -12,7 +12,18 @@
 <script type="text/javascript" src="/resources/js/messagingsystem.js"></script>
 </head>
 <body>
-   <h1>exception</h1>
-   <h2>oh crap...</h2>
+   <div class="header">
+      <h3>
+         <a href="/">
+            <img alt="" src="/resources/images/udacity_logo_50x50.png"></img>
+            Udacity Internal Messaging
+         </a>
+      </h3>
+   </div>
+   <div class="midder">
+      <h1>exception</h1>
+      <h2>oh crap...</h2>
+   </div>
+   <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>
 </body>
 </html>

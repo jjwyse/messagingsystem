@@ -26,9 +26,7 @@ input:focus
 /* -------------------------------- */
 .register {
    left: 50%;
-   margin-left: -150px;
-   margin-top: -100px;
-   position: fixed;
+   text-align: center; 
 }
 
 .register .error {
@@ -45,7 +43,6 @@ input:focus
 
 .register input[type=submit] {
    margin-top: 7px;
-   text-align: right;
 }
 
 .register input[type=text] {
@@ -86,7 +83,7 @@ input[type=submit] {
 /* Midder - I made it up, it goes between the header and the footer */
 /* -------------------------------- */
 #midder {
-   margin-top: 25%;
+   margin-top: 50px;
 }
 
 /* -------------------------------- */
