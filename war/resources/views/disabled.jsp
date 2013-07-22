@@ -23,7 +23,7 @@
          </a>
       </h3>
    </div>
-   <div class="midder">
+   <div id="midder">
       <div id="content">
          <p>Sorry, it looks like someone doesn't like you because your account has been disabled.</p>
       </div>
