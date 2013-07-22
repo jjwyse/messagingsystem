@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security.registration;
+package com.jjw.messagingsystem.security.form;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -11,16 +11,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-/**
- * @author jjwyse
- * 
- */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ForenameValidator.class)
-public @interface Forename
+@Constraint(validatedBy = GroupsValidator.class)
+public @interface Groups
 {
-    String message() default "Invalid first name";
+    String message() default "Invalid group selection";
 
     Class<?>[] groups() default {};
 

@@ -14,10 +14,10 @@ public interface MessagingSystemConstantsIF
     String ENTITY_USER = "user";
 
     // Udacity users' entity properties
-    String USER_TYPE = "UdacityMessagingSystemUser";
-    String USER_FORENAME = "forename";
-    String USER_SURNAME = "surname";
-    String USER_NICKNAME = "nickname";
+    String USER_TYPE = "MessagingSystemUser";
+    String USER_FIRSTNAME = "firstName";
+    String USER_LASTNAME = "lastName";
+    String USER_USERNAME = "userName";
     String USER_EMAIL = "email";
     String USER_ENABLED = "enabled";
     String USER_AUTHORITIES = "authorities";

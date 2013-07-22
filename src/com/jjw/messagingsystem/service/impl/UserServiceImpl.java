@@ -3,7 +3,7 @@ package com.jjw.messagingsystem.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.dto.MessagingSystemUser;
 import com.jjw.messagingsystem.service.UserService;
 
 public class UserServiceImpl implements UserService
@@ -11,12 +11,12 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserDAO myUserDAO;
 
-    public GoogleAppEngineUser findUser(String userId)
+    public MessagingSystemUser findUser(String userId)
     {
         return myUserDAO.findUser(userId);
     }
 
-    public void registerUser(GoogleAppEngineUser newUser)
+    public void registerUser(MessagingSystemUser newUser)
     {
         myUserDAO.registerUser(newUser);
     }

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.appengine.api.users.UserServiceFactory;
-import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.dto.MessagingSystemUser;
+import com.jjw.messagingsystem.security.form.RegistrationForm;
 import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
-import com.jjw.messagingsystem.security.registration.RegistrationForm;
 import com.jjw.messagingsystem.security.util.AppRole;
 import com.jjw.messagingsystem.service.UserService;
 
@@ -54,7 +54,7 @@ public class RegistrationController extends MessagingSystemControllerAbs
         }
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        GoogleAppEngineUser currentUser = (GoogleAppEngineUser) authentication.getPrincipal();
+        MessagingSystemUser currentUser = (MessagingSystemUser) authentication.getPrincipal();
         Set<AppRole> roles = EnumSet.of(AppRole.USER);
 
         if (UserServiceFactory.getUserService().isUserAdmin())
@@ -62,8 +62,8 @@ public class RegistrationController extends MessagingSystemControllerAbs
             roles.add(AppRole.ADMIN);
         }
 
-        GoogleAppEngineUser user = new GoogleAppEngineUser(currentUser.getUserId(), currentUser.getNickname(),
-                currentUser.getEmail(), form.getForename(), form.getSurname(), roles, true);
+        MessagingSystemUser user = new MessagingSystemUser(currentUser.getUserId(), currentUser.getUserName(),
+                currentUser.getEmail(), form.getFirstName(), form.getLastName(), roles, true);
 
         myUserService.registerUser(user);
 

@@ -1,13 +1,13 @@
 package com.jjw.messagingsystem.service;
 
 import com.jjw.messagingsystem.MessagingSystemConstantsIF;
-import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.dto.MessagingSystemUser;
 
 public interface UserService extends MessagingSystemConstantsIF
 {
-    GoogleAppEngineUser findUser(String userId);
+    MessagingSystemUser findUser(String userId);
 
-    void registerUser(GoogleAppEngineUser newUser);
+    void registerUser(MessagingSystemUser newUser);
 
     void removeUser(String userId);
 

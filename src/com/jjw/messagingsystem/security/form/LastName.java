@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.jjw.messagingsystem.security.registration;
+package com.jjw.messagingsystem.security.form;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -21,8 +21,8 @@ import javax.validation.Payload;
 
 @Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = SurnameValidator.class)
-public @interface Surname
+@Constraint(validatedBy = LastNameValidator.class)
+public @interface LastName
 {
     String message() default "Invalid last name";
 

@@ -29,23 +29,29 @@
    <div id="midder">
       <div class="register">
          <p>
-            Welcome <sec:authentication property="principal.nickname" />
+            Welcome <sec:authentication property="principal.userName" />
          </p>
          <h4>Register for the Udacity Internal Messaging System:</h4>
    
          <form:form id="register" method="post" modelAttribute="registrationForm">
             <fieldset>
-               <form:label path="forename">Forename:</form:label>
+               <form:label path="firstName">First Name:</form:label>
                <br />
-               <form:input path="forename" />
-               <form:errors path="forename" cssClass="error" />
+               <form:input path="firstName" />
+               <form:errors path="firstName" cssClass="error" />
                <br />
    
-               <form:label path="surname">Surname:</form:label>
+               <form:label path="lastName">Last Name:</form:label>
                <br />
-               <form:input path="surname" />
-               <form:errors path="surname" cssClass="error" />
-               <br />               
+               <form:input path="lastName" />
+               <form:errors path="lastName" cssClass="error" />
+               <br />
+               
+               <form:label path="groups">Groups:</form:label>
+               <br />
+               <form:input path="groups" />
+               <form:errors path="groups" cssClass="error" />
+               <br />
             </fieldset>
             <input type="submit" value="Register">
          </form:form>

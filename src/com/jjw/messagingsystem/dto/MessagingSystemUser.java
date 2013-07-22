@@ -12,40 +12,40 @@ import com.jjw.messagingsystem.security.util.AppRole;
  * @author jjwyse
  * 
  */
-public class GoogleAppEngineUser implements Serializable
+public class MessagingSystemUser implements Serializable
 {
     /** Serial ID */
     private static final long serialVersionUID = 1L;
 
     private String myUserId;
     private String myEmail;
-    private String myNickname;
-    private String myForename;
-    private String mySurname;
+    private String myUserName;
+    private String myFirstName;
+    private String myLastName;
     private Set<AppRole> myAuthorities;
     private boolean myEnabled = true;
 
-    public GoogleAppEngineUser(String userId, String nickname, String email, String forename, String surname,
+    public MessagingSystemUser(String userId, String userName, String email, String firstName, String lastName,
             Set<AppRole> authorities, boolean isEnabled)
     {
         myUserId = userId;
         myEmail = email;
-        myNickname = nickname;
-        myForename = forename;
-        mySurname = surname;
+        myUserName = userName;
+        myFirstName = firstName;
+        myLastName = lastName;
         myAuthorities = authorities;
         myEnabled = isEnabled;
     }
 
     /**
      * @param userId
-     * @param nickname
+     * @param userName
      * @param email
      */
-    public GoogleAppEngineUser(String userId, String nickname, String email, Set<AppRole> authorities)
+    public MessagingSystemUser(String userId, String userName, String email, Set<AppRole> authorities)
     {
         myUserId = userId;
-        myNickname = nickname;
+        myUserName = userName;
         myEmail = email;
         myAuthorities = authorities;
     }
@@ -83,51 +83,51 @@ public class GoogleAppEngineUser implements Serializable
     }
 
     /**
-     * @return the nickname
+     * @return the userName
      */
-    public String getNickname()
+    public String getUserName()
     {
-        return myNickname;
+        return myUserName;
     }
 
     /**
-     * @param nickname the nickname to set
+     * @param userName the userName to set
      */
-    public void setNickname(String nickname)
+    public void setUserName(String userName)
     {
-        this.myNickname = nickname;
+        this.myUserName = userName;
     }
 
     /**
-     * @return the forename
+     * @return the firstName
      */
-    public String getForename()
+    public String getFirstName()
     {
-        return myForename;
+        return myFirstName;
     }
 
     /**
-     * @param forename the forename to set
+     * @param firstName the firstName to set
      */
-    public void setForename(String forename)
+    public void setFirstName(String firstName)
     {
-        this.myForename = forename;
+        this.myFirstName = firstName;
     }
 
     /**
-     * @return the surname
+     * @return the lastName
      */
-    public String getSurname()
+    public String getLastName()
     {
-        return mySurname;
+        return myLastName;
     }
 
     /**
-     * @param surname the surname to set
+     * @param lastName the lastName to set
      */
-    public void setSurname(String surname)
+    public void setLastName(String lastName)
     {
-        this.mySurname = surname;
+        this.myLastName = lastName;
     }
 
     /**
@@ -165,7 +165,8 @@ public class GoogleAppEngineUser implements Serializable
     @Override
     public String toString()
     {
-        return "GaeUser{" + "userId='" + myUserId + '\'' + ", nickname='" + myNickname + '\'' + ", forename='"
-                + myForename + '\'' + ", surname='" + mySurname + '\'' + ", authorities=" + myAuthorities + '}';
+        return "MessagingSystemUser{" + "userId='" + myUserId + '\'' + ", userName='" + myUserName + '\''
+                + ", firstName='" + myFirstName + '\'' + ", lastName='" + myLastName + '\'' + ", authorities="
+                + myAuthorities + '}';
     }
 }

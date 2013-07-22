@@ -15,7 +15,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.dto.MessagingSystemUser;
 import com.jjw.messagingsystem.security.util.AppRole;
 
 public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
@@ -23,7 +23,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     private static final Logger myLogger = Logger.getLogger(UserDAOImpl.class.getName());
 
     @Override
-    public GoogleAppEngineUser findUser(String userId)
+    public MessagingSystemUser findUser(String userId)
     {
         Key key = KeyFactory.createKey(USER_TYPE, userId);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -43,9 +43,9 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
                 }
             }
 
-            GoogleAppEngineUser googleAppEngineUser = new GoogleAppEngineUser(user.getKey().getName(),
-                    (String) user.getProperty(USER_NICKNAME), (String) user.getProperty(USER_EMAIL),
-                    (String) user.getProperty(USER_FORENAME), (String) user.getProperty(USER_SURNAME), roles,
+            MessagingSystemUser googleAppEngineUser = new MessagingSystemUser(user.getKey().getName(),
+                    (String) user.getProperty(USER_USERNAME), (String) user.getProperty(USER_EMAIL),
+                    (String) user.getProperty(USER_FIRSTNAME), (String) user.getProperty(USER_LASTNAME), roles,
                     (Boolean) user.getProperty(USER_ENABLED));
 
             return googleAppEngineUser;
@@ -59,16 +59,16 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     }
 
     @Override
-    public void registerUser(GoogleAppEngineUser newUser)
+    public void registerUser(MessagingSystemUser newUser)
     {
         myLogger.info("Attempting to create new user " + newUser);
 
         Key key = KeyFactory.createKey(USER_TYPE, newUser.getUserId());
         Entity user = new Entity(key);
         user.setProperty(USER_EMAIL, newUser.getEmail());
-        user.setProperty(USER_NICKNAME, newUser.getNickname());
-        user.setProperty(USER_FORENAME, newUser.getForename());
-        user.setProperty(USER_SURNAME, newUser.getSurname());
+        user.setProperty(USER_USERNAME, newUser.getUserName());
+        user.setProperty(USER_FIRSTNAME, newUser.getFirstName());
+        user.setProperty(USER_LASTNAME, newUser.getLastName());
         user.setUnindexedProperty(USER_ENABLED, newUser.isEnabled());
 
         Collection<? extends GrantedAuthority> roles = newUser.getAuthorities();

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
+import com.jjw.messagingsystem.dto.MessagingSystemUser;
 
 /**
  * Authentication object representing a fully-authenticated user.
@@ -15,11 +15,11 @@ import com.jjw.messagingsystem.dto.GoogleAppEngineUser;
  */
 public class GoogleAppEngineUserAuthentication implements Authentication
 {
-    private final GoogleAppEngineUser myPrincipal;
+    private final MessagingSystemUser myPrincipal;
     private final Object myDetails;
     private boolean myAuthenticated;
 
-    public GoogleAppEngineUserAuthentication(GoogleAppEngineUser principal, Object details)
+    public GoogleAppEngineUserAuthentication(MessagingSystemUser principal, Object details)
     {
         this.myPrincipal = principal;
         this.myDetails = details;

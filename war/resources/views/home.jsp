@@ -12,7 +12,7 @@
   <body>
   <div id="content">
      <h3>The Home Page</h3>
-     <p>Welcome back <sec:authentication property="principal.nickname"/>.</p>
+     <p>Welcome back <sec:authentication property="principal.userName"/>.</p>
      <p>
      You can get to this page if you have authenticated and are a registered user.
      You are registered as
