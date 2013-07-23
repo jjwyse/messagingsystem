@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <datastore-indexes autoGenerate="true">
 
-    <!-- Users index -->
+<!--     Users index
     <datastore-index kind="Users" ancestor="false">
         <property name="userName" direction="asc" />
     </datastore-index>
     
-    <!-- Messages index -->
+    Messages index
     <datastore-index kind="Messages" ancestor="false">
         <property name="toUserName" direction="asc" />
     </datastore-index>
-
+ -->
 </datastore-indexes>
