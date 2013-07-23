@@ -12,12 +12,11 @@ import com.jjw.messagingsystem.security.util.AppRole;
  * @author jjwyse
  * 
  */
-public class MessagingSystemUser implements Serializable
+public class UserDTO implements Serializable
 {
     /** Serial ID */
     private static final long serialVersionUID = 1L;
 
-    private String myUserId;
     private String myEmail;
     private String myUserName;
     private String myFirstName;
@@ -25,10 +24,9 @@ public class MessagingSystemUser implements Serializable
     private Set<AppRole> myAuthorities;
     private boolean myEnabled = true;
 
-    public MessagingSystemUser(String userId, String userName, String email, String firstName, String lastName,
-            Set<AppRole> authorities, boolean isEnabled)
+    public UserDTO(String userName, String email, String firstName, String lastName, Set<AppRole> authorities,
+            boolean isEnabled)
     {
-        myUserId = userId;
         myEmail = email;
         myUserName = userName;
         myFirstName = firstName;
@@ -37,33 +35,20 @@ public class MessagingSystemUser implements Serializable
         myEnabled = isEnabled;
     }
 
+    public UserDTO()
+    {
+    }
+
     /**
      * @param userId
      * @param userName
      * @param email
      */
-    public MessagingSystemUser(String userId, String userName, String email, Set<AppRole> authorities)
+    public UserDTO(String userName, String email, Set<AppRole> authorities)
     {
-        myUserId = userId;
         myUserName = userName;
         myEmail = email;
         myAuthorities = authorities;
-    }
-
-    /**
-     * @return the userId
-     */
-    public String getUserId()
-    {
-        return myUserId;
-    }
-
-    /**
-     * @param userId the userId to set
-     */
-    public void setUserId(String userId)
-    {
-        this.myUserId = userId;
     }
 
     /**
@@ -165,8 +150,7 @@ public class MessagingSystemUser implements Serializable
     @Override
     public String toString()
     {
-        return "MessagingSystemUser{" + "userId='" + myUserId + '\'' + ", userName='" + myUserName + '\''
-                + ", firstName='" + myFirstName + '\'' + ", lastName='" + myLastName + '\'' + ", authorities="
-                + myAuthorities + '}';
+        return "UserDTO{" + "userName='" + myUserName + '\'' + ", firstName='" + myFirstName + '\'' + ", lastName='"
+                + myLastName + '\'' + ", authorities=" + myAuthorities + '}';
     }
 }

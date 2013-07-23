@@ -11,29 +11,28 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import com.google.appengine.api.users.User;
-import com.jjw.messagingsystem.dto.MessagingSystemUser;
+import com.jjw.messagingsystem.dto.UserDTO;
 import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
 import com.jjw.messagingsystem.security.util.AppRole;
-import com.jjw.messagingsystem.service.UserService;
+import com.jjw.messagingsystem.service.UserServiceIF;
 
 public class GoogleAccountsAuthenticationProvider implements AuthenticationProvider
 {
     @Autowired
-    private UserService myUserService;
+    private UserServiceIF myUserService;
 
     public Authentication authenticate(Authentication authentication) throws AuthenticationException
     {
         User googleUser = (User) authentication.getPrincipal();
 
-        MessagingSystemUser user = myUserService.findUser(googleUser.getUserId());
+        UserDTO user = myUserService.findUser(googleUser.getNickname());
 
         if (user == null)
         {
             // User not in registry. Needs to register and add the NEW_USER role
             Set<AppRole> authorities = new HashSet<AppRole>();
             authorities.add(AppRole.NEW_USER);
-            user = new MessagingSystemUser(googleUser.getUserId(), googleUser.getNickname(), googleUser.getEmail(),
-                    authorities);
+            user = new UserDTO(googleUser.getNickname(), googleUser.getEmail(), authorities);
         }
 
         if (!user.isEnabled())

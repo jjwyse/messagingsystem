@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 <title>Udacity | Internal Messaging</title>
@@ -22,6 +24,12 @@
    </div>
    <div id="midder">
       <h1>Inbox</h1>
+      <c:forEach var="message" items="${messages}">
+         <h3>"${message}"</h3>
+      </c:forEach>
+      <form method="post">
+         <input type="submit">
+      </form>
    </div>
    <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>
 </body>

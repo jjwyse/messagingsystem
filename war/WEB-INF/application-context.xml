@@ -24,8 +24,10 @@
 
    <!-- Service beans -->
    <bean id="userService" class="com.jjw.messagingsystem.service.impl.UserServiceImpl" />
+   <bean id="messageService" class="com.jjw.messagingsystem.service.impl.MessageServiceImpl" />
 
    <!-- DAO beans -->
    <bean id="userDAO" class="com.jjw.messagingsystem.dao.impl.UserDAOImpl" />
+   <bean id="messageDAO" class="com.jjw.messagingsystem.dao.impl.MessageDAOImpl" />
    
 </beans>

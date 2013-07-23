@@ -3,20 +3,20 @@ package com.jjw.messagingsystem.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.dao.UserDAO;
-import com.jjw.messagingsystem.dto.MessagingSystemUser;
-import com.jjw.messagingsystem.service.UserService;
+import com.jjw.messagingsystem.dto.UserDTO;
+import com.jjw.messagingsystem.service.UserServiceIF;
 
-public class UserServiceImpl implements UserService
+public class UserServiceImpl implements UserServiceIF
 {
     @Autowired
     private UserDAO myUserDAO;
 
-    public MessagingSystemUser findUser(String userId)
+    public UserDTO findUser(String userName)
     {
-        return myUserDAO.findUser(userId);
+        return myUserDAO.findUser(userName);
     }
 
-    public void registerUser(MessagingSystemUser newUser)
+    public void registerUser(UserDTO newUser)
     {
         myUserDAO.registerUser(newUser);
     }
