@@ -20,7 +20,7 @@
          </a>
       </h3>
    </div>
-   <div id="midder">
+   <div class="midder">
       <h1>exception</h1>
       <h2>oh crap...</h2>
    </div>

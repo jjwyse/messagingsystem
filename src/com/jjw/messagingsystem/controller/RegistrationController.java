@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.appengine.api.users.UserServiceFactory;
 import com.jjw.messagingsystem.dto.UserDTO;
-import com.jjw.messagingsystem.security.form.RegistrationForm;
+import com.jjw.messagingsystem.form.registration.RegistrationForm;
 import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
 import com.jjw.messagingsystem.security.util.AppRole;
 import com.jjw.messagingsystem.service.UserServiceIF;
@@ -50,7 +50,7 @@ public class RegistrationController extends MessagingSystemControllerAbs
 
         if (result.hasErrors())
         {
-            return null;
+            return REDIRECT + VIEW_REGISTER;
         }
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

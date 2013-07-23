@@ -27,7 +27,7 @@
       </h3>
    </div>
 
-   <div id="midder">
+   <div class="midder">
       <div class="register">
          <h2>Register for the Messaging System:</h2>
          <form:form id="register" method="post" modelAttribute="registrationForm">

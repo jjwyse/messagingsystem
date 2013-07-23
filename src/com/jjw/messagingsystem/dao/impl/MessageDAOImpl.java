@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import com.jjw.messagingsystem.dao.MessageDAO;
 import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dto.MessageDTO;
@@ -28,7 +29,7 @@ public class MessageDAOImpl extends MessagingSystemDAOAbs implements MessageDAO
 
         // Use class Query to assemble a query where we only get messages for this user name
         Filter fromUserNameFilter = new FilterPredicate(MESSAGE_TO_USERNAME, FilterOperator.EQUAL, userName);
-        Query q = new Query(MESSAGE_TYPE).setFilter(fromUserNameFilter);
+        Query q = new Query(MESSAGE_TYPE).setFilter(fromUserNameFilter).addSort(MESSAGE_DATE, SortDirection.DESCENDING);
 
         // Use PreparedQuery interface to retrieve results
         PreparedQuery pq = getDatastore().prepare(q);

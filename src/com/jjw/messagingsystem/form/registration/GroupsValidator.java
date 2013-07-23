@@ -1,4 +1,4 @@
-package com.jjw.messagingsystem.security.form;
+package com.jjw.messagingsystem.form.registration;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

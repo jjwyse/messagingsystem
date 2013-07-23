@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <html>
 <head>
@@ -22,14 +24,52 @@
          </a>
       </h3>
    </div>
-   <div id="midder">
-      <h1>Inbox</h1>
-      <c:forEach var="message" items="${messages}">
-         <h3>"${message}"</h3>
-      </c:forEach>
-      <form method="post">
-         <input type="submit">
-      </form>
+   <div class="midder">
+      <div class="inbox">
+         <div class="title">
+            <h1>Inbox</h1>
+            <h5>
+               <sec:authentication property="principal.userName" />
+            </h5>
+         </div>
+         <div class="messages">
+            <table>
+               <tr>
+                  <th>From</th>
+                  <th>Message</th>
+                  <th>Date</th>
+               </tr>
+               <c:forEach var="message" items="${messages}">
+                  <tr>
+                     <td><h4>${message.fromUserName}</h4></td>
+                     <td><h4>${message.content}</h4></td>
+                     <td><h4>${message.date}</h4></td>
+                  </tr>
+               </c:forEach>
+            </table>
+            <div class="error">${error}</div>
+         </div>
+         <div class="sendMessage">
+            <h3>Compose</h3>
+            <form:form id="compose" method="post" modelAttribute="composeForm">
+               <fieldset>
+                  <form:label path="toUserName">To:</form:label>
+                  <br />
+                  <form:input path="toUserName" />
+                  <form:errors path="toUserName" cssClass="error" />
+                  <br />
+                  <form:label path="content">Message:</form:label>
+                  <br />
+                  <form:input path="content" />
+                  <form:errors path="content" cssClass="error" />
+                  <br /> <label>From:</label> <br /> <input id="readonly" type="text"
+                     value="<sec:authentication property="principal.userName" />" readonly
+                     style="background-color: #EE7622"> <br />
+               </fieldset>
+               <input type="submit" value="Send Message">
+            </form:form>
+         </div>
+      </div>
    </div>
    <div class="footer">&copy; 2013 Joshua Wyse --- All rights reserved.</div>
 </body>

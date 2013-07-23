@@ -25,7 +25,7 @@
          </a>
       </h3>
    </div>
-   <div id="midder">
+   <div class="midder">
       <div id="content">
          <p>
             You have been logged out of the Messaging System.

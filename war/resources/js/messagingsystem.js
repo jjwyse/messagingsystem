@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
    $('.newUser').magnificPopup({
       type: 'inline',
       preloader: false,
@@ -24,7 +24,25 @@ $('.open-popup-link').magnificPopup({
   midClick: true,
   mainClass: 'custom-popup-class'
   // Optionally pass markup without attaching it to DOM
-  /*items: {
+  items: {
     src: '<div id="popup-with-something" class="mfp-hide"><div class="some-element">Instead of this element you may put anything else and it\'ll scale proportionally (e.g. flash embed object or your custom video player) </div></div>' 
-  }*/
+  }
+});*/
+
+$(document).ready(function()
+{
+   $("tr:even").css("background-color", "#D4D4D4");
 });
+
+
+/*
+ * Handles displaying the compose section from the inbox
+ */
+$(document).ready(function(){
+   $(".sendMessage h3").click(function(){
+     $("form").slideToggle();
+   });
+ });
+
+
+

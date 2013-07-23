@@ -16,8 +16,7 @@ h1,h2,h3,h4,h5 {
    font-weight: normal;
 }
 
-input:focus
-{
+input:focus {
    border-color: #EE7622;
 }
 
@@ -26,7 +25,7 @@ input:focus
 /* -------------------------------- */
 .register {
    left: 50%;
-   text-align: center; 
+   text-align: center;
 }
 
 .register .error {
@@ -51,38 +50,67 @@ input:focus
 }
 
 /* -------------------------------- */
-/* New user page */
+/* Inbox page */
 /* -------------------------------- */
-.newUser {
-   border: 0;
+.inbox .title {
+   text-align: center;
+}
+
+.inbox .title h5 {
+   color: #EE7622;
+   margin-top: -20px;
+}
+
+.inbox .messages {
+   color: #EE7622;
+   margin-top: -20px;
+   padding: 10px;
+}
+
+.inbox .sendMessage {
+   bottom: 0;
+   color: #EE7622;
    left: 50%;
-   margin-left: -150px;
+   margin-bottom: 30px;
+   margin-left: -25%;
    margin-top: -100px;
    position: fixed;
+   text-align: center;
+   width: 50%;
 }
 
-.newUser .error {
-   color: red;
+.inbox .sendMessage form {
+   display: none;
 }
 
-.newUser li {
-   font-size: 25px;
+.inbox .sendMessage h3 {
+   color: #EE7622;
+   cursor: pointer;
 }
 
-.newUser input {
-   font-size: 25px;
+.inbox input[type=submit] {
+   font-size: 20px;
+   margin-top: 15px;
+   margin-bottom: 15px;
 }
 
-input[type=submit] {
-   margin-top: 7px;
-   text-align: right;
+.inbox input[type=text] {
+   font-size: 40px;
 }
 
+.inbox table {
+   border: 1px solid #929292;
+   font-size: 30px;
+   margin: 15px auto;
+   margin-top: 40px;
+   text-align: center;
+   width: 95%;
+}
 
 /* -------------------------------- */
 /* Midder - I made it up, it goes between the header and the footer */
 /* -------------------------------- */
-#midder {
+.midder {
    margin-top: 50px;
 }
 

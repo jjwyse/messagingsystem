@@ -20,7 +20,7 @@
          </a>
       </h3>
    </div>
-   <div id="midder">
+   <div class="midder">
       <h1>404 Not Found</h1>
       <h2>Ummm...it's gotta be around here somewhere...</h2>
    </div>

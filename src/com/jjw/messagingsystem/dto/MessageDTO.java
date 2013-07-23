@@ -1,5 +1,6 @@
 package com.jjw.messagingsystem.dto;
 
+import com.jjw.messagingsystem.util.TimeUtil;
 
 public class MessageDTO
 {
@@ -13,13 +14,21 @@ public class MessageDTO
     {
     }
 
-    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content, String date)
+    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content)
     {
         myMessageId = messageId;
         this.myToUserName = toUserName;
         this.myFromUserName = fromUserName;
         myContent = content;
-        myDate = date;
+        myDate = TimeUtil.getCurrentTimeHumanReadable();
+    }
+
+    public MessageDTO(String toUserName, String fromUserName, String content)
+    {
+        this.myToUserName = toUserName;
+        this.myFromUserName = fromUserName;
+        myContent = content;
+        myDate = TimeUtil.getCurrentTimeHumanReadable();
     }
 
     /**
