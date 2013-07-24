@@ -57,7 +57,7 @@ public class GoogleAppEngineAuthenticationFilter extends GenericFilterBean imple
                     // Send new users to the registration page.
                     if (authentication.getAuthorities().contains(AppRole.NEW_USER))
                     {
-                        ((HttpServletResponse) response).sendRedirect(VIEW_REGISTER);
+                        ((HttpServletResponse) response).sendRedirect("/" + VIEW_REGISTER);
                         return;
                     }
                 }

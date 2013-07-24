@@ -20,16 +20,16 @@ input:focus {
    border-color: #EE7622;
 }
 
+.error {
+   color: red;
+}
+
 /* -------------------------------- */
 /* Register page */
 /* -------------------------------- */
 .register {
    left: 50%;
    text-align: center;
-}
-
-.register .error {
-   color: red;
 }
 
 .register fieldset {
@@ -80,6 +80,7 @@ input:focus {
 }
 
 .inbox .sendMessage form {
+   background-color: #D4D4D4;
    display: none;
 }
 
@@ -89,13 +90,18 @@ input:focus {
 }
 
 .inbox input[type=submit] {
-   font-size: 20px;
+   font-size: 40px;
    margin-top: 15px;
    margin-bottom: 15px;
+   padding: 5px;
 }
 
 .inbox input[type=text] {
    font-size: 40px;
+}
+
+.inbox p {
+   display: none;
 }
 
 .inbox table {

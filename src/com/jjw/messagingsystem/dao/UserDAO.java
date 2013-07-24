@@ -9,4 +9,6 @@ public interface UserDAO
     void registerUser(UserDTO newUser);
 
     void removeUser(String userId);
+
+    boolean userExists(String userName);
 }

@@ -8,27 +8,33 @@ public class MessageDTO
     private String myToUserName;
     private String myFromUserName;
     private String myContent;
+    private boolean myIsRead;
+    private String mySubject;
     private String myDate;
 
     public MessageDTO()
     {
     }
 
-    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content)
+    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content, String subject)
     {
         myMessageId = messageId;
-        this.myToUserName = toUserName;
-        this.myFromUserName = fromUserName;
+        myToUserName = toUserName;
+        myFromUserName = fromUserName;
         myContent = content;
         myDate = TimeUtil.getCurrentTimeHumanReadable();
+        mySubject = subject;
+        myIsRead = false;
     }
 
-    public MessageDTO(String toUserName, String fromUserName, String content)
+    public MessageDTO(String toUserName, String fromUserName, String content, String subject)
     {
-        this.myToUserName = toUserName;
-        this.myFromUserName = fromUserName;
+        myToUserName = toUserName;
+        myFromUserName = fromUserName;
         myContent = content;
+        mySubject = subject;
         myDate = TimeUtil.getCurrentTimeHumanReadable();
+        myIsRead = false;
     }
 
     /**
@@ -109,6 +115,38 @@ public class MessageDTO
     public void setDate(String date)
     {
         myDate = date;
+    }
+
+    /**
+     * @return the isRead
+     */
+    public boolean isIsRead()
+    {
+        return myIsRead;
+    }
+
+    /**
+     * @param isRead the isRead to set
+     */
+    public void setIsRead(boolean isRead)
+    {
+        myIsRead = isRead;
+    }
+
+    /**
+     * @return the subject
+     */
+    public String getSubject()
+    {
+        return mySubject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject)
+    {
+        mySubject = subject;
     }
 
     @Override

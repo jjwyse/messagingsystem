@@ -11,10 +11,10 @@
    
    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
-   <!-- Resolve all views to JSPs in /resources/views directory -->
+   <!-- Resolve all views to JSPs in /WEB-INF/views directory -->
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix">
-         <value>/resources/views/</value>
+         <value>/WEB-INF/views/</value>
       </property>
       <property name="suffix">
          <value>.jsp</value>

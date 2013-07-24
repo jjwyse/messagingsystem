@@ -8,8 +8,7 @@ public interface MessagingSystemConstantsIF
 
     // Views
     String VIEW_INBOX = "inbox";
-    String VIEW_NEW_USER = "newuser";
-    String VIEW_REGISTER = "/register";
+    String VIEW_REGISTER = "registration";
 
     // Entities
     String ENTITY_USER = "user";
@@ -28,6 +27,7 @@ public interface MessagingSystemConstantsIF
     String MESSAGE_FROM_USERNAME = "fromUserName";
     String MESSAGE_TO_USERNAME = "toUserName";
     String MESSAGE_CONTENT = "content";
+    String MESSAGE_SUBJECT = "subject";
     String MESSAGE_DATE = "date";
 
     // Prefix for Spring MVC

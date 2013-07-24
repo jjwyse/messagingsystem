@@ -10,4 +10,6 @@ public interface UserServiceIF extends MessagingSystemServiceIF
 
     void removeUser(String userId);
 
+    boolean userExists(String userName);
+
 }

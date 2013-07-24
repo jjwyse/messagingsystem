@@ -14,7 +14,7 @@
       <sec:intercept-url pattern="/_ah/admin**" access="permitAll" />
       <sec:intercept-url pattern="/login" access="permitAll" />
       <sec:intercept-url pattern="/logout" access="permitAll" />
-      <sec:intercept-url pattern="/register*" access="hasRole('NEW_USER')" />
+      <sec:intercept-url pattern="/registration*" access="hasRole('NEW_USER')" />
       <sec:intercept-url pattern="/**" access="hasRole('USER')" />
       <sec:custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
 

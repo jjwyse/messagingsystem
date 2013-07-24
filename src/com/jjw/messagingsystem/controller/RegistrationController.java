@@ -27,7 +27,7 @@ import com.jjw.messagingsystem.service.UserServiceIF;
  */
 
 @Controller
-@RequestMapping(value = "/register")
+@RequestMapping(value = "/registration")
 public class RegistrationController extends MessagingSystemControllerAbs
 {
     private static final Logger myLogger = Logger.getLogger(RegistrationController.class.getName());

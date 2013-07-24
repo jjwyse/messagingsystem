@@ -36,37 +36,51 @@
             <table>
                <tr>
                   <th>From</th>
+                  <th>Subject</th>
                   <th>Message</th>
                   <th>Date</th>
                </tr>
                <c:forEach var="message" items="${messages}">
                   <tr>
                      <td><h4>${message.fromUserName}</h4></td>
-                     <td><h4>${message.content}</h4></td>
+                     <td><h4>${message.subject}</h4></td>
+                     <td><h4>${message.content}</h4</td>
                      <td><h4>${message.date}</h4></td>
                   </tr>
                </c:forEach>
             </table>
-            <div class="error">${error}</div>
          </div>
          <div class="sendMessage">
             <h3>Compose</h3>
             <form:form id="compose" method="post" modelAttribute="composeForm">
                <fieldset>
+                  <!-- To user name -->
                   <form:label path="toUserName">To:</form:label>
                   <br />
                   <form:input path="toUserName" />
                   <form:errors path="toUserName" cssClass="error" />
+
+                  <!-- From user name -->
+                  <br /> <label>From:</label> <br /> <input id="readonly" type="text"
+                     value="<sec:authentication property="principal.userName" />" readonly
+                     style="background-color: #EE7622; text-align: center;">
+
+                  <!-- Subject -->
+                  <br />
+                  <form:label path="subject">Subject:</form:label>
+                  <br />
+                  <form:input path="subject" />
+                  <form:errors path="subject" cssClass="error" />
+
+                  <!-- Message -->
                   <br />
                   <form:label path="content">Message:</form:label>
                   <br />
                   <form:input path="content" />
                   <form:errors path="content" cssClass="error" />
-                  <br /> <label>From:</label> <br /> <input id="readonly" type="text"
-                     value="<sec:authentication property="principal.userName" />" readonly
-                     style="background-color: #EE7622"> <br />
+                  <br /> <input type="submit" value="Send">
                </fieldset>
-               <input type="submit" value="Send Message">
+               <div class="error">${error}</div>
             </form:form>
          </div>
       </div>

@@ -18,7 +18,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     @Override
     public UserDTO findUser(String userName)
     {
-        Key key = KeyFactory.createKey(USER_TYPE, userName);
+        Key key = getUserKey(userName);
 
         try
         {
@@ -50,5 +50,34 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
         Key key = KeyFactory.createKey(USER_TYPE, userId);
 
         getDatastore().delete(key);
+    }
+
+    @Override
+    public boolean userExists(String userName)
+    {
+        Key key = getUserKey(userName);
+
+        try
+        {
+            Entity userEntity = getDatastore().get(key);
+            myLogger.info("User: " + userName + " exists in the datastore");
+            return true;
+
+        }
+        catch (EntityNotFoundException e)
+        {
+            myLogger.warning(userName + " not found in datastore");
+            return false;
+        }
+    }
+
+    /**
+     * 
+     * @param userName
+     * @return
+     */
+    private Key getUserKey(String userName)
+    {
+        return KeyFactory.createKey(USER_TYPE, userName);
     }
 }

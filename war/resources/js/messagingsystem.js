@@ -42,7 +42,20 @@ $(document).ready(function(){
    $(".sendMessage h3").click(function(){
      $("form").slideToggle();
    });
+   
+   /*
+    * Handles displaying the message content when clicked on
+    */
+/*   $(".messages tr").click(function(){
+      $(".messages tr p").slideToggle();
+    });*/
+   
+   $(document).ready(function() {
+      $("td").click(function() {
+          alert("You clicked my <td>!" + $(this).html() + 
+                "My TR is:" + $(this).parent("tr").html());
+          //get <td> element values here!!??
+      });
+  });
  });
-
-
 

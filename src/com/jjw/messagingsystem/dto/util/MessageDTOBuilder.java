@@ -17,6 +17,7 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
         messageDTO.setFromUserName((String) messageEntity.getProperty(MESSAGE_FROM_USERNAME));
         messageDTO.setToUserName((String) messageEntity.getProperty(MESSAGE_TO_USERNAME));
         messageDTO.setContent((String) messageEntity.getProperty(MESSAGE_CONTENT));
+        messageDTO.setSubject((String) messageEntity.getProperty(MESSAGE_SUBJECT));
         messageDTO.setDate((String) messageEntity.getProperty(MESSAGE_DATE));
 
         return messageDTO;
@@ -28,6 +29,7 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
         messageEntity.setProperty(MESSAGE_FROM_USERNAME, message.getFromUserName());
         messageEntity.setProperty(MESSAGE_TO_USERNAME, message.getToUserName());
         messageEntity.setProperty(MESSAGE_CONTENT, message.getContent());
+        messageEntity.setProperty(MESSAGE_SUBJECT, message.getSubject());
         messageEntity.setProperty(MESSAGE_DATE, message.getDate());
 
         return messageEntity;

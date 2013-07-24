@@ -8,6 +8,9 @@ public class ComposeForm
     @Content
     private String myContent;
 
+    @Subject
+    private String mySubject;
+
     /**
      * @return the toUserName
      */
@@ -40,4 +43,19 @@ public class ComposeForm
         myContent = content;
     }
 
+    /**
+     * @return the subject
+     */
+    public String getSubject()
+    {
+        return mySubject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject)
+    {
+        mySubject = subject;
+    }
 }

@@ -18,8 +18,6 @@ public class RegistrationForm
     @Groups
     private String myGroups;
 
-    private String myUserName;
-
     public String getFirstName()
     {
         return myFirstName;
@@ -54,21 +52,5 @@ public class RegistrationForm
     public void setGroups(String groups)
     {
         myGroups = groups;
-    }
-
-    /**
-     * @return the userName
-     */
-    public String getUserName()
-    {
-        return myUserName;
-    }
-
-    /**
-     * @param userName the userName to set
-     */
-    public void setUserName(String userName)
-    {
-        myUserName = userName;
     }
 }

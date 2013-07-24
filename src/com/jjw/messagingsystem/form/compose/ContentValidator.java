@@ -7,7 +7,6 @@ import org.datanucleus.util.StringUtils;
 
 public class ContentValidator implements ConstraintValidator<Content, String>
 {
-
     @Override
     public void initialize(Content content)
     {
