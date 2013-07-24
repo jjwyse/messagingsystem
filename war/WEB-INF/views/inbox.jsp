@@ -54,8 +54,15 @@
             <h3>Compose</h3>
             <form:form id="compose" method="post" modelAttribute="composeForm">
                <fieldset>
+                  <!-- To group -->
+                  <form:label path="toGroupName">To Group:</form:label>
+                  <br />
+                  <form:input path="toGroupName" />
+                  <form:errors path="toGroupName" cssClass="error" />
+                  <br />
+               
                   <!-- To user name -->
-                  <form:label path="toUserName">To:</form:label>
+                  <form:label path="toUserName">To User:</form:label>
                   <br />
                   <form:input path="toUserName" />
                   <form:errors path="toUserName" cssClass="error" />

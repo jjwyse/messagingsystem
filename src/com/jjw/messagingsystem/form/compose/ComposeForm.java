@@ -11,6 +11,9 @@ public class ComposeForm
     @Subject
     private String mySubject;
 
+    @ToGroupName
+    private String myToGroupName;
+
     /**
      * @return the toUserName
      */
@@ -57,5 +60,21 @@ public class ComposeForm
     public void setSubject(String subject)
     {
         mySubject = subject;
+    }
+
+    /**
+     * @return the groupName
+     */
+    public String getToGroupName()
+    {
+        return myToGroupName;
+    }
+
+    /**
+     * @param groupName the groupName to set
+     */
+    public void setToGroupName(String toGroupName)
+    {
+        myToGroupName = toGroupName;
     }
 }
