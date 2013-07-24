@@ -5,8 +5,21 @@ import org.springframework.util.Assert;
 import com.google.appengine.api.datastore.Entity;
 import com.jjw.messagingsystem.dto.MessageDTO;
 
+/**
+ * Helps us transfer our Message Data Transfer Objects to Google App Engine Entities and vice versa. Provide a common
+ * place to do this to avoid having the same code everywhere
+ * 
+ * @author jjwyse
+ * 
+ */
 public class MessageDTOBuilder extends MessagingSystemDTOBuilder
 {
+    /**
+     * Convert an entity into a MessageDTO
+     * 
+     * @param messageEntity The entity to convert
+     * @return The message DTO representation of the entity
+     */
     public static MessageDTO fromEntity(Entity messageEntity)
     {
         Assert.notNull(messageEntity, "Message entity cannot be null");
@@ -23,6 +36,12 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
         return messageDTO;
     }
 
+    /**
+     * Convert a MessageDTO to a GAE entity
+     * 
+     * @param message The message DTO to convert to an entity
+     * @return The GAE entity for this message DTO
+     */
     public static Entity toEntity(MessageDTO message)
     {
         Entity messageEntity = new Entity(MESSAGE_TYPE);

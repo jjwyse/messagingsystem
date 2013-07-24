@@ -12,6 +12,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The first name of our registration form.
+ * 
  * @author jjwyse
  * 
  */

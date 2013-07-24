@@ -9,9 +9,11 @@ import org.springframework.security.core.GrantedAuthority;
 import com.jjw.messagingsystem.dto.UserDTO;
 
 /**
- * Authentication object representing a fully-authenticated user.
+ * Authentication object representing a fully-authenticated user with the Google services
  * 
- * @author Luke Taylor
+ * With the help of the SpringSource blog, specifically @author Luke Taylor
+ * 
+ * @author jjwyse
  */
 public class GoogleAppEngineUserAuthentication implements Authentication
 {
@@ -19,6 +21,9 @@ public class GoogleAppEngineUserAuthentication implements Authentication
     private final Object myDetails;
     private boolean myAuthenticated;
 
+    /*
+     * Constructor
+     */
     public GoogleAppEngineUserAuthentication(UserDTO principal, Object details)
     {
         this.myPrincipal = principal;

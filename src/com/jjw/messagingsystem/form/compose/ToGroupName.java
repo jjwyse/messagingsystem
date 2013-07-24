@@ -12,6 +12,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The to group name part of our Compose form.
+ * 
  * @author jjwyse
  * 
  */

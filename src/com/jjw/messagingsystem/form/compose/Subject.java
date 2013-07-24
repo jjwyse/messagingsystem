@@ -12,6 +12,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The subject line of a message the user sends
+ * 
  * @author jjwyse
  * 
  */

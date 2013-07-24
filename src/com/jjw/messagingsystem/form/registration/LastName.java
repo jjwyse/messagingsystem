@@ -15,8 +15,9 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The last name part of our registration field.
  * 
- * @author Luke Taylor
+ * @author Josh Wyse
  */
 
 @Target({ METHOD, FIELD, ANNOTATION_TYPE })

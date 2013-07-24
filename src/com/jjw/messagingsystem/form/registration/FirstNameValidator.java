@@ -4,12 +4,15 @@
 package com.jjw.messagingsystem.form.registration;
 
 import java.util.regex.Pattern;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
  * 
- * @author Luke Taylor
+ * Validates that the first name of our form is legit. Shout out to @author Luke Taylor for the regex.
+ * 
+ * @author Josh Wyse
  */
 public class FirstNameValidator implements ConstraintValidator<FirstName, String>
 {

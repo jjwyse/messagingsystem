@@ -12,6 +12,12 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+/**
+ * Entry point into our application that re-directs the user to the Google authentication page
+ * 
+ * @author jjwyse
+ * 
+ */
 public class GoogleAccountsAuthenticationEntryPoint implements AuthenticationEntryPoint
 {
     /*

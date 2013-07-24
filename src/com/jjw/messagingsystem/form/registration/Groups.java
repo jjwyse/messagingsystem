@@ -11,6 +11,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ * Represents the groups part of our registration form.
+ * 
+ * @author jjwyse
+ * 
+ */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = GroupsValidator.class)

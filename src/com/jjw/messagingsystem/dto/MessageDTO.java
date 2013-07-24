@@ -2,6 +2,12 @@ package com.jjw.messagingsystem.dto;
 
 import com.jjw.messagingsystem.util.TimeUtil;
 
+/**
+ * Message Data Transfer Object which represents a Message in our system.
+ * 
+ * @author jjwyse
+ * 
+ */
 public class MessageDTO
 {
     private Long myMessageId;

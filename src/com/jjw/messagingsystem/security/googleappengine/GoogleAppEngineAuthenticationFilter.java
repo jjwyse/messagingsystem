@@ -23,14 +23,22 @@ import org.springframework.web.filter.GenericFilterBean;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.jjw.messagingsystem.MessagingSystemConstantsIF;
-import com.jjw.messagingsystem.security.util.AppRole;
+import com.jjw.messagingsystem.security.util.MessagingSystemRole;
 
+/**
+ * With the help of the SpringSource blog, specifically @author Luke Fisher
+ * 
+ * @author jjwyse
+ */
 public class GoogleAppEngineAuthenticationFilter extends GenericFilterBean implements MessagingSystemConstantsIF
 {
     private AuthenticationDetailsSource ads = new WebAuthenticationDetailsSource();
     private AuthenticationManager authenticationManager;
     private AuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
 
+    /**
+     * Filters HTTP requests depending on whether the user has authenticated and/or registered with us yet
+     */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
             ServletException
     {
@@ -55,7 +63,7 @@ public class GoogleAppEngineAuthenticationFilter extends GenericFilterBean imple
                     SecurityContextHolder.getContext().setAuthentication(authentication);
 
                     // Send new users to the registration page.
-                    if (authentication.getAuthorities().contains(AppRole.NEW_USER))
+                    if (authentication.getAuthorities().contains(MessagingSystemRole.NEW_USER))
                     {
                         ((HttpServletResponse) response).sendRedirect("/" + VIEW_REGISTER);
                         return;
@@ -74,11 +82,21 @@ public class GoogleAppEngineAuthenticationFilter extends GenericFilterBean imple
         chain.doFilter(request, response);
     }
 
+    /**
+     * Set our authentication manager for our messaging system
+     * 
+     * @param authenticationManager
+     */
     public void setAuthenticationManager(AuthenticationManager authenticationManager)
     {
         this.authenticationManager = authenticationManager;
     }
 
+    /**
+     * Set our failure handler for our messaging system
+     * 
+     * @param failureHandler
+     */
     public void setFailureHandler(AuthenticationFailureHandler failureHandler)
     {
         this.failureHandler = failureHandler;

@@ -57,10 +57,4 @@ public class MessageDAOImpl extends MessagingSystemDAOAbs implements MessageDAO
     {
         myLogger.info("Sending message to group: " + message);
     }
-
-    @Override
-    public void sendMessageToEveryone(MessageDTO message)
-    {
-        myLogger.info("Sending message to EVERYONE");
-    }
 }

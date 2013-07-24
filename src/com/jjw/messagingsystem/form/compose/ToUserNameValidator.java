@@ -8,6 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.service.UserServiceIF;
 
+/**
+ * Validates that if the user sends a message to a specific user, that the user name is legit.
+ * 
+ * @author jjwyse
+ * 
+ */
 public class ToUserNameValidator implements ConstraintValidator<ToUserName, String>
 {
     @Autowired
@@ -21,7 +27,11 @@ public class ToUserNameValidator implements ConstraintValidator<ToUserName, Stri
     @Override
     public boolean isValid(String userName, ConstraintValidatorContext context)
     {
-        return !StringUtils.isEmpty(userName) && myUserService.userExists(userName);
+        if (!StringUtils.isEmpty(userName))
+        {
+            return myUserService.userExists(userName);
+        }
+        return true;
     }
 
 }

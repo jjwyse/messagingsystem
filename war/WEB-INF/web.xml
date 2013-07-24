@@ -42,12 +42,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
    
    <error-page>
       <error-code>404</error-code>
-      <location>/resources/views/404.jsp</location>
+      <location>/WEB-INF/views/404.jsp</location>
    </error-page>
    
    <error-page>
       <exception-type>java.lang.Exception</exception-type>
-      <location>/resources/views/exception.jsp</location>
+      <location>/WEB-INF/views/exception.jsp</location>
    </error-page>
    
 </web-app>

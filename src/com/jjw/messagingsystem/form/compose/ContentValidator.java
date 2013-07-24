@@ -5,6 +5,12 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.datanucleus.util.StringUtils;
 
+/**
+ * Validates the content section of a message that the user sends in via the ComposeForm
+ * 
+ * @author jjwyse
+ * 
+ */
 public class ContentValidator implements ConstraintValidator<Content, String>
 {
     @Override

@@ -12,6 +12,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The content of a message (i.e. the body of the actual message)
+ * 
  * @author jjwyse
  * 
  */
@@ -25,5 +27,4 @@ public @interface Content
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
-
 }

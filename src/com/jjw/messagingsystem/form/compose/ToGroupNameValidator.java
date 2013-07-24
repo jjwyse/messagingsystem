@@ -8,6 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.service.GroupServiceIF;
 
+/**
+ * Validates that if the user enters in a group name to send a message to, that the group is legit.
+ * 
+ * @author jjwyse
+ * 
+ */
 public class ToGroupNameValidator implements ConstraintValidator<ToGroupName, String>
 {
     @Autowired
@@ -21,6 +27,10 @@ public class ToGroupNameValidator implements ConstraintValidator<ToGroupName, St
     @Override
     public boolean isValid(String groupName, ConstraintValidatorContext context)
     {
-        return !StringUtils.isEmpty(groupName) && myGroupService.groupExists(groupName);
+        if (!StringUtils.isEmpty(groupName))
+        {
+            return myGroupService.groupExists(groupName);
+        }
+        return true;
     }
 }

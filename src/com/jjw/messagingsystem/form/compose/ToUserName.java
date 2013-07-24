@@ -12,6 +12,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
+ * The to user name part of our compose form.
+ * 
  * @author jjwyse
  * 
  */

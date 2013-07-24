@@ -4,6 +4,7 @@
 package com.jjw.messagingsystem.form.registration;
 
 /**
+ * The registration form that is displayed when a user has authenticated but not logged in yet.
  * 
  * @author jjwyse
  */

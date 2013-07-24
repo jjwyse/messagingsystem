@@ -4,11 +4,14 @@
 package com.jjw.messagingsystem.dto;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
-import com.jjw.messagingsystem.security.util.AppRole;
+import com.jjw.messagingsystem.security.util.MessagingSystemRole;
 
 /**
+ * User Data Transfer Object which represents a User in our system
+ * 
  * @author jjwyse
  * 
  */
@@ -21,22 +24,24 @@ public class UserDTO implements Serializable
     private String myUserName;
     private String myFirstName;
     private String myLastName;
-    private Set<AppRole> myAuthorities;
+    private Set<MessagingSystemRole> myAuthorities;
+    private List<String> myGroups;
     private boolean myEnabled = true;
 
-    public UserDTO(String userName, String email, String firstName, String lastName, Set<AppRole> authorities,
-            boolean isEnabled)
+    public UserDTO()
+    {
+    }
+
+    public UserDTO(String userName, String email, String firstName, String lastName, Set<MessagingSystemRole> authorities,
+            List<String> groups, boolean isEnabled)
     {
         myEmail = email;
         myUserName = userName;
         myFirstName = firstName;
         myLastName = lastName;
         myAuthorities = authorities;
+        myGroups = groups;
         myEnabled = isEnabled;
-    }
-
-    public UserDTO()
-    {
     }
 
     /**
@@ -44,11 +49,12 @@ public class UserDTO implements Serializable
      * @param userName
      * @param email
      */
-    public UserDTO(String userName, String email, Set<AppRole> authorities)
+    public UserDTO(String userName, String email, Set<MessagingSystemRole> authorities, List<String> groups)
     {
         myUserName = userName;
         myEmail = email;
         myAuthorities = authorities;
+        myGroups = groups;
     }
 
     /**
@@ -118,7 +124,7 @@ public class UserDTO implements Serializable
     /**
      * @return the authorities
      */
-    public Set<AppRole> getAuthorities()
+    public Set<MessagingSystemRole> getAuthorities()
     {
         return myAuthorities;
     }
@@ -126,7 +132,7 @@ public class UserDTO implements Serializable
     /**
      * @param authorities the authorities to set
      */
-    public void setAuthorities(Set<AppRole> authorities)
+    public void setAuthorities(Set<MessagingSystemRole> authorities)
     {
         this.myAuthorities = authorities;
     }
@@ -145,6 +151,22 @@ public class UserDTO implements Serializable
     public void setEnabled(boolean enabled)
     {
         this.myEnabled = enabled;
+    }
+
+    /**
+     * @return the groups
+     */
+    public List<String> getGroups()
+    {
+        return myGroups;
+    }
+
+    /**
+     * @param groups the groups to set
+     */
+    public void setGroups(List<String> groups)
+    {
+        myGroups = groups;
     }
 
     @Override

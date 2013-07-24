@@ -1,5 +1,11 @@
 package com.jjw.messagingsystem.form.compose;
 
+/**
+ * Compose form used for the user to send messages
+ * 
+ * @author jjwyse
+ * 
+ */
 public class ComposeForm
 {
     @ToUserName
