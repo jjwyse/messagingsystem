@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="test/|test/src/|test/src/|test/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/apache-camel-2.10.2/lib/spring/aopalliance-1.0.jar"/>
@@ -17,5 +18,6 @@
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/spring-security-3.2.0.M1/dist/spring-security-core-3.2.0.M1.jar" sourcepath="/home/jjwyse/workspace/cots/spring-security-3.2.0.M1/dist/spring-security-core-3.2.0.M1-sources.jar"/>
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/misc/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/misc/hibernate-validator-4.2.0.Final.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
