@@ -1,5 +1,7 @@
 package com.jjw.messagingsystem.dao;
 
+import com.jjw.messagingsystem.dto.GroupDTO;
+
 /**
  * Group Data Access Object, providing an interface to our group data store
  * 
@@ -15,4 +17,11 @@ public interface GroupDAO
      * @return true if it exists
      */
     boolean groupExists(String groupName);
+
+    /**
+     * Creates a new group in our data store
+     * 
+     * @param groupName The group to create
+     */
+    void createGroup(GroupDTO group);
 }

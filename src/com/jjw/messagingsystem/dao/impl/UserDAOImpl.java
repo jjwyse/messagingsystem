@@ -72,6 +72,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     }
 
     /**
+     * Helper method to get the key for our users entity
      * 
      * @param userName
      * @return

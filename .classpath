@@ -19,5 +19,9 @@
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/misc/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="/home/jjwyse/workspace/cots/misc/hibernate-validator-4.2.0.Final.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/apps/appengine-java-sdk/lib/testing/appengine-testing.jar"/>
+	<classpathentry kind="lib" path="/apps/appengine-java-sdk-1.8.2/lib/impl/appengine-api.jar"/>
+	<classpathentry kind="lib" path="/apps/appengine-java-sdk-1.8.2/lib/impl/appengine-api-labs.jar"/>
+	<classpathentry kind="lib" path="/apps/appengine-java-sdk-1.8.2/lib/impl/appengine-api-stubs.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
