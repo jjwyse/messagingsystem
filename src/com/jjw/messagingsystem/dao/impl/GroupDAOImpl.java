@@ -11,10 +11,20 @@ import com.jjw.messagingsystem.dao.MessagingSystemDAOAbs;
 import com.jjw.messagingsystem.dto.GroupDTO;
 import com.jjw.messagingsystem.dto.util.GroupDTOBuilder;
 
+/**
+ * Implementation of the Group Data Access Object interface which handles retrieving and telling us about groups in our
+ * system.
+ * 
+ * @author jjwyse
+ * 
+ */
 public class GroupDAOImpl extends MessagingSystemDAOAbs implements GroupDAO
 {
     private static final Logger myLogger = Logger.getLogger(GroupDAOImpl.class.getName());
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean groupExists(String groupName)
     {
@@ -33,10 +43,13 @@ public class GroupDAOImpl extends MessagingSystemDAOAbs implements GroupDAO
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public void createGroup(GroupDTO group)
+    public void addGroup(GroupDTO newGroup)
     {
-        Entity groupEntity = GroupDTOBuilder.toEntity(group);
+        Entity groupEntity = GroupDTOBuilder.toEntity(newGroup);
 
         getDatastore().put(groupEntity);
     }
@@ -51,5 +64,4 @@ public class GroupDAOImpl extends MessagingSystemDAOAbs implements GroupDAO
     {
         return KeyFactory.createKey(GROUP_TYPE, groupName);
     }
-
 }

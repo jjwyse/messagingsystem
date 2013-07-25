@@ -6,6 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import org.datanucleus.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 import com.jjw.messagingsystem.service.GroupServiceIF;
 
 /**
@@ -14,7 +15,7 @@ import com.jjw.messagingsystem.service.GroupServiceIF;
  * @author jjwyse
  * 
  */
-public class ToGroupNameValidator implements ConstraintValidator<ToGroupName, String>
+public class ToGroupNameValidator implements ConstraintValidator<ToGroupName, String>, MessagingSystemConstantsIF
 {
     @Autowired
     GroupServiceIF myGroupService;
@@ -29,7 +30,7 @@ public class ToGroupNameValidator implements ConstraintValidator<ToGroupName, St
     {
         if (!StringUtils.isEmpty(groupName))
         {
-            return myGroupService.groupExists(groupName);
+            return (groupName.equals(GROUP_ZE_WORLD) || myGroupService.groupExists(groupName));
         }
         return true;
     }

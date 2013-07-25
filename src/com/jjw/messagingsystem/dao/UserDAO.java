@@ -1,5 +1,6 @@
 package com.jjw.messagingsystem.dao;
 
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 import com.jjw.messagingsystem.dto.UserDTO;
 
 /**
@@ -8,7 +9,7 @@ import com.jjw.messagingsystem.dto.UserDTO;
  * @author jjwyse
  * 
  */
-public interface UserDAO
+public interface UserDAO extends MessagingSystemConstantsIF
 {
     /**
      * Find the specific user by this user name in our data store

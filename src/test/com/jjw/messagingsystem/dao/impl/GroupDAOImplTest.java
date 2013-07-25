@@ -11,7 +11,7 @@ public class GroupDAOImplTest extends MessagingSystemAbsTest
     public void test()
     {
         GroupDAOImpl dao = new GroupDAOImpl();
-        dao.createGroup(new GroupDTO("TestGroup"));
+        dao.addGroup(new GroupDTO("TestGroup"));
 
         assert (dao.groupExists("TestGroup"));
     }

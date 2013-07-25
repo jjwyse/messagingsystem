@@ -33,17 +33,8 @@ public class MessageServiceImpl implements MessageServiceIF
      * {@inheritDoc}
      */
     @Override
-    public void sendMessageToUser(MessageDTO message)
+    public void sendMessage(MessageDTO message)
     {
-        myMessageDAO.sendMessageToUser(message);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void sendMessageToGroup(MessageDTO message)
-    {
-        myMessageDAO.sendMessageToGroup(message);
+        myMessageDAO.sendMessage(message);
     }
 }

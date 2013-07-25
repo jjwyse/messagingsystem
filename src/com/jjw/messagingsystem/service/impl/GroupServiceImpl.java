@@ -3,6 +3,7 @@ package com.jjw.messagingsystem.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jjw.messagingsystem.dao.GroupDAO;
+import com.jjw.messagingsystem.dto.GroupDTO;
 import com.jjw.messagingsystem.service.GroupServiceIF;
 
 /**
@@ -24,5 +25,14 @@ public class GroupServiceImpl implements GroupServiceIF
     public boolean groupExists(String groupName)
     {
         return myGroupDao.groupExists(groupName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addGroup(GroupDTO newGroup)
+    {
+        myGroupDao.addGroup(newGroup);
     }
 }

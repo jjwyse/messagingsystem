@@ -14,9 +14,6 @@ public class ComposeForm
     @Content
     private String myContent;
 
-    @Subject
-    private String mySubject;
-
     @ToGroupName
     private String myToGroupName;
 
@@ -50,22 +47,6 @@ public class ComposeForm
     public void setContent(String content)
     {
         myContent = content;
-    }
-
-    /**
-     * @return the subject
-     */
-    public String getSubject()
-    {
-        return mySubject;
-    }
-
-    /**
-     * @param subject the subject to set
-     */
-    public void setSubject(String subject)
-    {
-        mySubject = subject;
     }
 
     /**

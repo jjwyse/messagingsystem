@@ -1,5 +1,6 @@
 package com.jjw.messagingsystem.dao;
 
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 import com.jjw.messagingsystem.dto.GroupDTO;
 
 /**
@@ -8,7 +9,7 @@ import com.jjw.messagingsystem.dto.GroupDTO;
  * @author jjwyse
  * 
  */
-public interface GroupDAO
+public interface GroupDAO extends MessagingSystemConstantsIF
 {
     /**
      * Checks to see if a group by that group name exists in our data store
@@ -23,5 +24,5 @@ public interface GroupDAO
      * 
      * @param groupName The group to create
      */
-    void createGroup(GroupDTO group);
+    void addGroup(GroupDTO newGroup);
 }

@@ -64,9 +64,9 @@ public class InboxController extends MessagingSystemControllerAbs
         }
 
         // Send message to user
-        MessageDTO message = new MessageDTO(form.getToUserName(), getCurrentUserName(), form.getContent(),
-                form.getSubject());
-        myMessageService.sendMessageToUser(message);
+        MessageDTO message = new MessageDTO(form.getToUserName(), form.getToGroupName(), getCurrentUserName(),
+                form.getContent());
+        myMessageService.sendMessage(message);
 
         // Retrieve all of the messages for this user and put them in our model
         model.put(MODEL_MESSAGES, getMessages());

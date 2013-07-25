@@ -21,16 +21,9 @@ public interface MessageServiceIF extends MessagingSystemServiceIF
     List<MessageDTO> findAllMessages(String userName);
 
     /**
-     * Send a message to a specific user in our system
+     * Send a message to a user or group in the system
      * 
      * @param message The message to send
      */
-    void sendMessageToUser(MessageDTO message);
-
-    /**
-     * Send a message to a specific group in our system
-     * 
-     * @param message The message to send
-     */
-    void sendMessageToGroup(MessageDTO message);
+    void sendMessage(MessageDTO message);
 }

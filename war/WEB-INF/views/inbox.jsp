@@ -36,14 +36,12 @@
             <table>
                <tr>
                   <th>From</th>
-                  <th>Subject</th>
                   <th>Message</th>
                   <th>Date</th>
                </tr>
                <c:forEach var="message" items="${messages}">
                   <tr>
                      <td><h4>${message.fromUserName}</h4></td>
-                     <td><h4>${message.subject}</h4></td>
                      <td><h4>${message.content}</h4</td>
                      <td><h4>${message.date}</h4></td>
                   </tr>
@@ -71,13 +69,6 @@
                   <br /> <label>From:</label> <br /> <input id="readonly" type="text"
                      value="<sec:authentication property="principal.userName" />" readonly
                      style="background-color: #EE7622; text-align: center;">
-
-                  <!-- Subject -->
-                  <br />
-                  <form:label path="subject">Subject:</form:label>
-                  <br />
-                  <form:input path="subject" />
-                  <form:errors path="subject" cssClass="error" />
 
                   <!-- Message -->
                   <br />

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.appengine.api.users.UserServiceFactory;
+import com.jjw.messagingsystem.dto.GroupDTO;
 import com.jjw.messagingsystem.dto.UserDTO;
 import com.jjw.messagingsystem.form.registration.RegistrationForm;
 import com.jjw.messagingsystem.security.googleappengine.GoogleAppEngineUserAuthentication;
@@ -44,11 +45,7 @@ public class RegistrationController extends MessagingSystemControllerAbs
     {
         myLogger.info("Handling GET request in registration controller");
 
-        // Show an example of how to use groups
-        RegistrationForm registrationForm = new RegistrationForm();
-        registrationForm.setGroups("group1,...");
-
-        return registrationForm;
+        return new RegistrationForm();
     }
 
     /**
@@ -86,10 +83,17 @@ public class RegistrationController extends MessagingSystemControllerAbs
             groups = Arrays.asList(groupString.split(","));
         }
 
+        // Create our user from the form and then register the user
         UserDTO user = new UserDTO(currentUser.getUserName(), currentUser.getEmail(), form.getFirstName(),
                 form.getLastName(), roles, groups, true);
-
         myUserService.registerUser(user);
+
+        // TODO - I don't know how to seed data in google app engine datastore right now, so I'm just going to
+        // add every group someone says they're a part of to the group data store...change in future
+        for (String group : groups)
+        {
+            myGroupService.addGroup(new GroupDTO(group));
+        }
 
         // Update the context with the full authentication
         SecurityContextHolder.getContext().setAuthentication(

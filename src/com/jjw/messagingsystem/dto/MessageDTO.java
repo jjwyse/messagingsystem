@@ -13,32 +13,40 @@ public class MessageDTO
     private Long myMessageId;
     private String myToUserName;
     private String myFromUserName;
+    private String myToGroupName;
     private String myContent;
     private boolean myIsRead;
-    private String mySubject;
     private String myDate;
 
     public MessageDTO()
     {
     }
 
-    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content, String subject)
+    public MessageDTO(Long messageId, String toUserName, String fromUserName, String content)
     {
         myMessageId = messageId;
         myToUserName = toUserName;
         myFromUserName = fromUserName;
         myContent = content;
         myDate = TimeUtil.getCurrentTimeHumanReadable();
-        mySubject = subject;
         myIsRead = false;
     }
 
-    public MessageDTO(String toUserName, String fromUserName, String content, String subject)
+    public MessageDTO(String toUserName, String fromUserName, String content)
     {
         myToUserName = toUserName;
         myFromUserName = fromUserName;
         myContent = content;
-        mySubject = subject;
+        myDate = TimeUtil.getCurrentTimeHumanReadable();
+        myIsRead = false;
+    }
+
+    public MessageDTO(String toUserName, String toGroupName, String fromUserName, String content)
+    {
+        myToUserName = toUserName;
+        myFromUserName = fromUserName;
+        myToGroupName = toGroupName;
+        myContent = content;
         myDate = TimeUtil.getCurrentTimeHumanReadable();
         myIsRead = false;
     }
@@ -140,19 +148,19 @@ public class MessageDTO
     }
 
     /**
-     * @return the subject
+     * @return the toGroupName
      */
-    public String getSubject()
+    public String getToGroupName()
     {
-        return mySubject;
+        return myToGroupName;
     }
 
     /**
-     * @param subject the subject to set
+     * @param toGroupName the toGroupName to set
      */
-    public void setSubject(String subject)
+    public void setToGroupName(String toGroupName)
     {
-        mySubject = subject;
+        myToGroupName = toGroupName;
     }
 
     @Override

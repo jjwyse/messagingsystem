@@ -1,5 +1,7 @@
 package com.jjw.messagingsystem.service;
 
+import com.jjw.messagingsystem.dto.GroupDTO;
+
 /**
  * Service interface to the groups in our system
  * 
@@ -15,4 +17,11 @@ public interface GroupServiceIF
      * @return true if the group exists, false otherwise
      */
     boolean groupExists(String groupName);
+
+    /**
+     * Adds a new group to our group data store
+     * 
+     * @param newGroup The new group to add to our system
+     */
+    void addGroup(GroupDTO newGroup);
 }

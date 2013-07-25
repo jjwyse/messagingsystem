@@ -32,8 +32,8 @@ public class UserDTO implements Serializable
     {
     }
 
-    public UserDTO(String userName, String email, String firstName, String lastName, Set<MessagingSystemRole> authorities,
-            List<String> groups, boolean isEnabled)
+    public UserDTO(String userName, String email, String firstName, String lastName,
+            Set<MessagingSystemRole> authorities, List<String> groups, boolean isEnabled)
     {
         myEmail = email;
         myUserName = userName;
@@ -173,6 +173,6 @@ public class UserDTO implements Serializable
     public String toString()
     {
         return "UserDTO{" + "userName='" + myUserName + '\'' + ", firstName='" + myFirstName + '\'' + ", lastName='"
-                + myLastName + '\'' + ", authorities=" + myAuthorities + '}';
+                + myLastName + '\'' + ", authorities=" + myAuthorities + ", groups=" + myGroups + '}';
     }
 }

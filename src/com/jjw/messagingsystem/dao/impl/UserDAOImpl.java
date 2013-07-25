@@ -11,6 +11,13 @@ import com.jjw.messagingsystem.dao.UserDAO;
 import com.jjw.messagingsystem.dto.UserDTO;
 import com.jjw.messagingsystem.dto.util.UserDTOBuilder;
 
+/**
+ * Implementation of the User Data Access Object interface which handles retrieving and telling us about the users in
+ * our system.
+ * 
+ * @author jjwyse
+ * 
+ */
 public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
 {
     private static final Logger myLogger = Logger.getLogger(UserDAOImpl.class.getName());
@@ -34,6 +41,9 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void registerUser(UserDTO newUser)
     {
@@ -44,6 +54,9 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
         getDatastore().put(user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void removeUser(String userId)
     {
@@ -52,6 +65,9 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
         getDatastore().delete(key);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean userExists(String userName)
     {

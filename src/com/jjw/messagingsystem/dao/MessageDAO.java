@@ -2,6 +2,7 @@ package com.jjw.messagingsystem.dao;
 
 import java.util.List;
 
+import com.jjw.messagingsystem.MessagingSystemConstantsIF;
 import com.jjw.messagingsystem.dto.MessageDTO;
 
 /**
@@ -10,7 +11,7 @@ import com.jjw.messagingsystem.dto.MessageDTO;
  * @author jjwyse
  * 
  */
-public interface MessageDAO
+public interface MessageDAO extends MessagingSystemConstantsIF
 {
     /**
      * Finds all messages for the specified user
@@ -21,16 +22,9 @@ public interface MessageDAO
     List<MessageDTO> findAllMessages(String userName);
 
     /**
-     * Sends a message to a specific user
+     * Sends a message to a specific user or a group
      * 
      * @param message The message to send
      */
-    void sendMessageToUser(MessageDTO message);
-
-    /**
-     * Sends a message to a specific group
-     * 
-     * @param message The message to send
-     */
-    void sendMessageToGroup(MessageDTO message);
+    void sendMessage(MessageDTO message);
 }
