@@ -50,12 +50,12 @@ $(document).ready(function(){
       $(".messages tr p").slideToggle();
     });*/
    
-   $(document).ready(function() {
+/*   $(document).ready(function() {
       $("td").click(function() {
           alert("You clicked my <td>!" + $(this).html() + 
                 "My TR is:" + $(this).parent("tr").html());
           //get <td> element values here!!??
       });
-  });
+  });*/
  });
 

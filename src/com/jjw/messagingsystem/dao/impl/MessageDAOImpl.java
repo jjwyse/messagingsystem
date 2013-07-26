@@ -98,7 +98,14 @@ public class MessageDAOImpl extends MessagingSystemDAOAbs implements MessageDAO
         // Now, we need to update our Xref that maps userName->messageId
         if (StringUtils.hasText(message.getToGroupName()))
         {
-            sendMessageToGroup(message, messageKey);
+            if (message.getToGroupName().equalsIgnoreCase(GROUP_ZE_WORLD))
+            {
+                sendMessageToZeWorld(messageKey);
+            }
+            else
+            {
+                sendMessageToGroup(message, messageKey);
+            }
         }
 
         if (StringUtils.hasText(message.getToUserName()))
@@ -141,7 +148,34 @@ public class MessageDAOImpl extends MessagingSystemDAOAbs implements MessageDAO
         myLogger.info("Executing query to find users who are in the group: " + message.getToGroupName() + ", query: "
                 + query.toString());
 
-        // Use PreparedQuery interface to retrieve all of the users who are in this group
+        // Update our xref entity which represents each users' inbox
+        updateXrefEntity(query, messageKey);
+
+        myLogger.info("Updated xref table with all members of the group");
+    }
+
+    /**
+     * Sends a message to every user in the entire system
+     * 
+     * @param message The message to send
+     * @param messageKey The key of the message
+     */
+    private void sendMessageToZeWorld(Key messageKey)
+    {
+        Query query = new Query(USERS_TYPE);
+
+        // Update our xref entity which represents each users' inbox
+        updateXrefEntity(query, messageKey);
+    }
+
+    /**
+     * Executes the query and updates our xref table with all of the users who are in the group filter in our query
+     * 
+     * @param query The query to be executed
+     * @param messageKey The key of the message we want to put in the xref table
+     */
+    private void updateXrefEntity(Query query, Key messageKey)
+    {
         PreparedQuery pq = getDatastore().prepare(query);
         List<String> groupMembers = new ArrayList<String>();
         for (Entity result : pq.asIterable())
@@ -157,8 +191,6 @@ public class MessageDAOImpl extends MessagingSystemDAOAbs implements MessageDAO
         }
 
         getDatastore().put(entities);
-
-        myLogger.info("Updated xref table with all members of the group");
     }
 
     /**
