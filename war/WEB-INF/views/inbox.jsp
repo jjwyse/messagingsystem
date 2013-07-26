@@ -23,6 +23,7 @@
             Udacity Internal Messaging
          </a>
       </h3>
+      <a href="/logout">Logout</a>
    </div>
    <div class="midder">
       <div class="inbox">
