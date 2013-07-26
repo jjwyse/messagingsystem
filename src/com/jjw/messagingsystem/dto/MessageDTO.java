@@ -1,5 +1,9 @@
 package com.jjw.messagingsystem.dto;
 
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Logger;
+
 import com.jjw.messagingsystem.util.TimeUtil;
 
 /**
@@ -8,8 +12,10 @@ import com.jjw.messagingsystem.util.TimeUtil;
  * @author jjwyse
  * 
  */
-public class MessageDTO
+public class MessageDTO implements Comparable
 {
+    private static final Logger myLogger = Logger.getLogger(MessageDTO.class.getName());
+
     private Long myMessageId;
     private String myToUserName;
     private String myFromUserName;
@@ -163,17 +169,65 @@ public class MessageDTO
         myToGroupName = toGroupName;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int compareTo(Object other)
+    {
+        // if this is < otherMessageDto return -1 and so on ...
+        if (!(other instanceof MessageDTO))
+        {
+            return -1;
+        }
+        MessageDTO otherMessageDTO = (MessageDTO) other;
+        try
+        {
+            Date otherDate = TimeUtil.getDateFormatter().parse(otherMessageDTO.getDate());
+            Date thisDate = TimeUtil.getDateFormatter().parse(getDate());
+            if (thisDate.before(otherDate))
+            {
+                return -1;
+            }
+            else if (thisDate.after(otherDate))
+            {
+                return 1;
+            }
+            return 0;
+        }
+        catch (ParseException e)
+        {
+            myLogger.warning("Unable to parse one of these dates: other:" + otherMessageDTO.getDate() + ", this: "
+                    + getDate());
+        }
+
+        return -1;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString()
     {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("MessageDTO (");
-        stringBuilder.append("messageId: ").append(myMessageId);
-        stringBuilder.append(", toUserName: ").append(myToUserName);
-        stringBuilder.append(", fromUserName: ").append(myFromUserName);
-        stringBuilder.append(", content: ").append(myContent);
-        stringBuilder.append(", date: ").append(myDate);
-        stringBuilder.append(")");
-        return stringBuilder.toString();
+        StringBuilder builder = new StringBuilder();
+        builder.append("MessageDTO [myMessageId=");
+        builder.append(myMessageId);
+        builder.append(", myToUserName=");
+        builder.append(myToUserName);
+        builder.append(", myFromUserName=");
+        builder.append(myFromUserName);
+        builder.append(", myToGroupName=");
+        builder.append(myToGroupName);
+        builder.append(", myContent=");
+        builder.append(myContent);
+        builder.append(", myIsRead=");
+        builder.append(myIsRead);
+        builder.append(", myDate=");
+        builder.append(myDate);
+        builder.append("]");
+        return builder.toString();
     }
 }

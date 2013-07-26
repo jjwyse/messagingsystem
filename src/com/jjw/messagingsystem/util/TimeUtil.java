@@ -1,5 +1,6 @@
 package com.jjw.messagingsystem.util;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,5 +34,15 @@ public class TimeUtil
     {
         Date date = new Date();
         return myFormatter.format(date);
+    }
+
+    /**
+     * Allows other classes to reuse our date formatter
+     * 
+     * @return The date formatter
+     */
+    public static DateFormat getDateFormatter()
+    {
+        return myFormatter;
     }
 }
