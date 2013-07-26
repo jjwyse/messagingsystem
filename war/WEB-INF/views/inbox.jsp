@@ -36,12 +36,21 @@
             <table>
                <tr>
                   <th>From</th>
+                  <th>To</th>
                   <th>Message</th>
                   <th>Date</th>
                </tr>
                <c:forEach var="message" items="${messages}">
                   <tr>
                      <td><h4>${message.fromUserName}</h4></td>
+                     <td><h4>
+                        <c:if test="${not empty message.toUserName}">
+                           ${message.toUserName}
+                        </c:if>
+                        <c:if test="${not empty message.toGroupName}">
+                           ${message.toGroupName}
+                        </c:if>
+                     </h4></td>
                      <td><h4>${message.content}</h4</td>
                      <td><h4>${message.date}</h4></td>
                   </tr>
