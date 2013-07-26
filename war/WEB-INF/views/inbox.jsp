@@ -67,6 +67,8 @@
                   <form:input path="toGroupName" />
                   <form:errors path="toGroupName" cssClass="error" />
                   <br />
+                  <small>Send to group "zeWorld" to send to all users</small>
+                  <br />
                
                   <!-- To user name -->
                   <form:label path="toUserName">To User:</form:label>

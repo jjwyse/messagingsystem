@@ -37,18 +37,20 @@
                <br />
                <form:input path="firstName" />
                <form:errors path="firstName" cssClass="error" />
-               <br />
+               <br/>
    
                <form:label path="lastName">Last Name:</form:label>
                <br />
                <form:input path="lastName" />
                <form:errors path="lastName" cssClass="error" />
-               <br />
+               <br/>
                
                <form:label path="groups">Groups:</form:label>
                <br />
                <form:input path="groups" />
                <form:errors path="groups" cssClass="error" />
+               <br />
+               <small>Comma-separated list (no spaces anywhere)</small>
                <br />
                <label>User Name:</label>
                <br />

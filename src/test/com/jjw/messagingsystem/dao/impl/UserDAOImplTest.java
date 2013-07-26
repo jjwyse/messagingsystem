@@ -1,20 +1,34 @@
 package com.jjw.messagingsystem.dao.impl;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.jjw.messagingsystem.MessagingSystemAbsTest;
-import com.jjw.messagingsystem.dto.UserDTO;
-
-public class UserDAOImplTest extends MessagingSystemAbsTest
+public class UserDAOImplTest
 {
 
-    @Test(expected = Exception.class)
-    public void test()
+    @Test
+    public void testFindUser()
     {
-        UserDAOImpl dao = new UserDAOImpl();
-        dao.registerUser(new UserDTO("jdub", "jdub@gmail.com", null, null));
-        fail("Should have thrown exception from passing in null values above");
+        fail("Not yet implemented");
     }
+
+    @Test
+    public void testRegisterUser()
+    {
+        fail("Not yet implemented");
+    }
+
+    @Test
+    public void testRemoveUser()
+    {
+        fail("Not yet implemented");
+    }
+
+    @Test
+    public void testUserExists()
+    {
+        fail("Not yet implemented");
+    }
+
 }

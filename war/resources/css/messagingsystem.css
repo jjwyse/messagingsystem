@@ -24,6 +24,10 @@ input:focus {
    color: red;
 }
 
+small {
+   font-size: 19px;
+}
+
 /* -------------------------------- */
 /* Register page */
 /* -------------------------------- */
@@ -48,6 +52,7 @@ input:focus {
    margin-top: 7px;
    text-align: left;
 }
+
 
 /* -------------------------------- */
 /* Inbox page */

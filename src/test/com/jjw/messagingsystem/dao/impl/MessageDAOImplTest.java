@@ -4,17 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class GroupDAOImplTest
+public class MessageDAOImplTest
 {
 
     @Test
-    public void testGroupExists()
+    public void testFindAllMessages()
     {
         fail("Not yet implemented");
     }
 
     @Test
-    public void testAddGroup()
+    public void testSendMessage()
     {
         fail("Not yet implemented");
     }
