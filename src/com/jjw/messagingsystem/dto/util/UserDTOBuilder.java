@@ -35,14 +35,14 @@ public class UserDTOBuilder extends MessagingSystemDTOBuilder
 
         UserDTO userDTO = new UserDTO();
 
-        userDTO.setUserName((String) userEntity.getProperty(USER_USERNAME));
-        userDTO.setFirstName((String) userEntity.getProperty(USER_FIRSTNAME));
-        userDTO.setLastName((String) userEntity.getProperty(USER_LASTNAME));
-        userDTO.setEmail((String) userEntity.getProperty(USER_EMAIL));
-        userDTO.setGroups((List<String>) userEntity.getProperty(USER_GROUPS));
-        userDTO.setEnabled((boolean) userEntity.getProperty(USER_ENABLED));
+        userDTO.setUserName((String) userEntity.getProperty(USERS_USERNAME));
+        userDTO.setFirstName((String) userEntity.getProperty(USERS_FIRSTNAME));
+        userDTO.setLastName((String) userEntity.getProperty(USERS_LASTNAME));
+        userDTO.setEmail((String) userEntity.getProperty(USERS_EMAIL));
+        userDTO.setGroups((List<String>) userEntity.getProperty(USERS_GROUPS));
+        userDTO.setEnabled((boolean) userEntity.getProperty(USERS_ENABLED));
 
-        long binaryAuthorities = (Long) userEntity.getProperty(USER_AUTHORITIES);
+        long binaryAuthorities = (Long) userEntity.getProperty(USERS_AUTHORITIES);
         Set<MessagingSystemRole> roles = EnumSet.noneOf(MessagingSystemRole.class);
         for (MessagingSystemRole r : MessagingSystemRole.values())
         {
@@ -67,15 +67,15 @@ public class UserDTOBuilder extends MessagingSystemDTOBuilder
         Assert.notNull(newUser, "User DTO cannot be null");
 
         // Key off of the user name. User name is unique for that user
-        Key key = KeyFactory.createKey(USER_TYPE, newUser.getUserName());
+        Key key = KeyFactory.createKey(USERS_TYPE, newUser.getUserName());
 
         Entity user = new Entity(key);
-        user.setProperty(USER_EMAIL, newUser.getEmail());
-        user.setProperty(USER_USERNAME, newUser.getUserName());
-        user.setProperty(USER_FIRSTNAME, newUser.getFirstName());
-        user.setProperty(USER_LASTNAME, newUser.getLastName());
-        user.setProperty(USER_GROUPS, newUser.getGroups());
-        user.setUnindexedProperty(USER_ENABLED, newUser.isEnabled());
+        user.setProperty(USERS_EMAIL, newUser.getEmail());
+        user.setProperty(USERS_USERNAME, newUser.getUserName());
+        user.setProperty(USERS_FIRSTNAME, newUser.getFirstName());
+        user.setProperty(USERS_LASTNAME, newUser.getLastName());
+        user.setProperty(USERS_GROUPS, newUser.getGroups());
+        user.setUnindexedProperty(USERS_ENABLED, newUser.isEnabled());
 
         Collection<? extends GrantedAuthority> roles = newUser.getAuthorities();
         long binaryAuthorities = 0;
@@ -83,7 +83,7 @@ public class UserDTOBuilder extends MessagingSystemDTOBuilder
         {
             binaryAuthorities |= 1 << ((MessagingSystemRole) r).getBit();
         }
-        user.setUnindexedProperty(USER_AUTHORITIES, binaryAuthorities);
+        user.setUnindexedProperty(USERS_AUTHORITIES, binaryAuthorities);
 
         return user;
     }

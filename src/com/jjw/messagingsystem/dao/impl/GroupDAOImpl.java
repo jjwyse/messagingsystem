@@ -62,6 +62,6 @@ public class GroupDAOImpl extends MessagingSystemDAOAbs implements GroupDAO
      */
     private Key getGroupKey(String groupName)
     {
-        return KeyFactory.createKey(GROUP_TYPE, groupName);
+        return KeyFactory.createKey(GROUPS_TYPE, groupName);
     }
 }

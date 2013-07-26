@@ -26,12 +26,12 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
 
         MessageDTO messageDTO = new MessageDTO();
 
-        messageDTO.setMessageId((Long) messageEntity.getProperty(MESSAGE_TYPE));
-        messageDTO.setFromUserName((String) messageEntity.getProperty(MESSAGE_FROM_USERNAME));
-        messageDTO.setToUserName((String) messageEntity.getProperty(MESSAGE_TO_USERNAME));
-        messageDTO.setToGroupName((String) messageEntity.getProperty(MESSAGE_TO_GROUPNAME));
-        messageDTO.setContent((String) messageEntity.getProperty(MESSAGE_CONTENT));
-        messageDTO.setDate((String) messageEntity.getProperty(MESSAGE_DATE));
+        messageDTO.setMessageId((Long) messageEntity.getProperty(MESSAGES_TYPE));
+        messageDTO.setFromUserName((String) messageEntity.getProperty(MESSAGES_FROM_USERNAME));
+        messageDTO.setToUserName((String) messageEntity.getProperty(MESSAGES_TO_USERNAME));
+        messageDTO.setToGroupName((String) messageEntity.getProperty(MESSAGES_TO_GROUPNAME));
+        messageDTO.setContent((String) messageEntity.getProperty(MESSAGES_CONTENT));
+        messageDTO.setDate((String) messageEntity.getProperty(MESSAGES_DATE));
 
         return messageDTO;
     }
@@ -44,12 +44,12 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
      */
     public static Entity toEntity(MessageDTO message)
     {
-        Entity messageEntity = new Entity(MESSAGE_TYPE);
-        messageEntity.setProperty(MESSAGE_FROM_USERNAME, message.getFromUserName());
-        messageEntity.setProperty(MESSAGE_TO_USERNAME, message.getToUserName());
-        messageEntity.setProperty(MESSAGE_TO_GROUPNAME, message.getToGroupName());
-        messageEntity.setProperty(MESSAGE_CONTENT, message.getContent());
-        messageEntity.setProperty(MESSAGE_DATE, message.getDate());
+        Entity messageEntity = new Entity(MESSAGES_TYPE);
+        messageEntity.setProperty(MESSAGES_FROM_USERNAME, message.getFromUserName());
+        messageEntity.setProperty(MESSAGES_TO_USERNAME, message.getToUserName());
+        messageEntity.setProperty(MESSAGES_TO_GROUPNAME, message.getToGroupName());
+        messageEntity.setProperty(MESSAGES_CONTENT, message.getContent());
+        messageEntity.setProperty(MESSAGES_DATE, message.getDate());
 
         return messageEntity;
     }

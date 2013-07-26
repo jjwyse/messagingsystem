@@ -24,27 +24,31 @@ public interface MessagingSystemConstantsIF
     String GROUP_ZE_WORLD = "zeWorld"; // group that represents all users
 
     // Udacity users' entity properties
-    String USER_TYPE = "Users";
-    String USER_FIRSTNAME = "firstName";
-    String USER_LASTNAME = "lastName";
-    String USER_USERNAME = "userName";
-    String USER_EMAIL = "email";
-    String USER_GROUPS = "groups";
-    String USER_ENABLED = "enabled";
-    String USER_AUTHORITIES = "authorities";
+    String USERS_TYPE = "Users";
+    String USERS_FIRSTNAME = "firstName";
+    String USERS_LASTNAME = "lastName";
+    String USERS_USERNAME = "userName";
+    String USERS_EMAIL = "email";
+    String USERS_GROUPS = "groups";
+    String USERS_ENABLED = "enabled";
+    String USERS_AUTHORITIES = "authorities";
 
     // Udacity messages' entity properties
-    String MESSAGE_TYPE = "Messages";
-    String MESSAGE_FROM_USERNAME = "fromUserName";
-    String MESSAGE_TO_USERNAME = "toUserName";
-    String MESSAGE_TO_GROUPNAME = "toGroupName";
-    String MESSAGE_CONTENT = "content";
-    String MESSAGE_SUBJECT = "subject";
-    String MESSAGE_DATE = "date";
+    String MESSAGES_TYPE = "Messages";
+    String MESSAGES_ID = "messageId";
+    String MESSAGES_FROM_USERNAME = "fromUserName";
+    String MESSAGES_TO_USERNAME = "toUserName";
+    String MESSAGES_TO_GROUPNAME = "toGroupName";
+    String MESSAGES_CONTENT = "content";
+    String MESSAGES_SUBJECT = "subject";
+    String MESSAGES_DATE = "date";
 
     // Udacity groups' entity properties
-    String GROUP_TYPE = "Groups";
-    String GROUP_NAME = "groupName";
+    String GROUPS_TYPE = "Groups";
+    String GROUPS_NAME = "groupName";
+
+    // Udacity usersmessagesxref entity properties
+    String USERSMESSAGESXREF_TYPE = "UsersMessagesXref";
 
     // Prefix for Spring MVC
     String REDIRECT = "redirect:";

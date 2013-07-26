@@ -26,10 +26,10 @@ public class GroupDTOBuilder extends MessagingSystemDTOBuilder
     {
         Assert.notNull(groupDTO, "Group DTO cannot be null");
 
-        Key groupKey = KeyFactory.createKey(GROUP_TYPE, groupDTO.getGroupName());
+        Key groupKey = KeyFactory.createKey(GROUPS_TYPE, groupDTO.getGroupName());
 
         Entity groupEntity = new Entity(groupKey);
-        groupEntity.setProperty(GROUP_NAME, groupDTO.getGroupName());
+        groupEntity.setProperty(GROUPS_NAME, groupDTO.getGroupName());
 
         return groupEntity;
     }

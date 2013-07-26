@@ -60,7 +60,7 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
     @Override
     public void removeUser(String userId)
     {
-        Key key = KeyFactory.createKey(USER_TYPE, userId);
+        Key key = KeyFactory.createKey(USERS_TYPE, userId);
 
         getDatastore().delete(key);
     }
@@ -95,6 +95,6 @@ public class UserDAOImpl extends MessagingSystemDAOAbs implements UserDAO
      */
     private Key getUserKey(String userName)
     {
-        return KeyFactory.createKey(USER_TYPE, userName);
+        return KeyFactory.createKey(USERS_TYPE, userName);
     }
 }
