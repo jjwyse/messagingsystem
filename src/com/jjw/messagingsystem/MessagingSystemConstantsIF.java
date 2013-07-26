@@ -42,6 +42,7 @@ public interface MessagingSystemConstantsIF
     String MESSAGES_CONTENT = "content";
     String MESSAGES_SUBJECT = "subject";
     String MESSAGES_DATE = "date";
+    String MESSAGES_IS_READ = "isRead";
 
     // Udacity groups' entity properties
     String GROUPS_TYPE = "Groups";

@@ -32,6 +32,7 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
         messageDTO.setToGroupName((String) messageEntity.getProperty(MESSAGES_TO_GROUPNAME));
         messageDTO.setContent((String) messageEntity.getProperty(MESSAGES_CONTENT));
         messageDTO.setDate((String) messageEntity.getProperty(MESSAGES_DATE));
+        messageDTO.setIsRead((Boolean) messageEntity.getProperty(MESSAGES_IS_READ));
 
         return messageDTO;
     }
@@ -50,6 +51,7 @@ public class MessageDTOBuilder extends MessagingSystemDTOBuilder
         messageEntity.setProperty(MESSAGES_TO_GROUPNAME, message.getToGroupName());
         messageEntity.setProperty(MESSAGES_CONTENT, message.getContent());
         messageEntity.setProperty(MESSAGES_DATE, message.getDate());
+        messageEntity.setProperty(MESSAGES_IS_READ, message.getIsRead());
 
         return messageEntity;
     }

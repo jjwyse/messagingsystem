@@ -140,7 +140,7 @@ public class MessageDTO implements Comparable
     /**
      * @return the isRead
      */
-    public boolean isIsRead()
+    public boolean getIsRead()
     {
         return myIsRead;
     }
